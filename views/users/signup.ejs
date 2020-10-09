@@ -1,0 +1,42 @@
+<%- include('../partials/header') %> 
+
+<h1>signup</h1>
+<form action="/signup" method="POST">
+    <!-- USERNAME -->
+    <div>
+        <label for="username" >
+            <input type="text" name="username" placeholder="Username">
+        </label>
+    </div>
+     <!-- PASSWORD -->
+<div>
+    <label for="password" >
+        <input type="password" name="password" placeholder="Password">
+    </label>
+</div>
+ <!-- FULL NAME -->
+<div>
+    <label for="fullName" >
+        <input type="text" name="fullName" placeholder="Full Name">
+    </label>
+</div>
+ <!-- GENDER-->
+<div>
+    <label for="gender" >
+        <input type="text" name="gender" placeholder="Gender">
+    </label>
+</div>
+ <!-- BIRTHDATE -->
+<div>
+    <label for="birthday" >
+        <input type="date" name="birthday" placeholder="Birthday">
+    </label>
+</div>
+<input type="submit" value="Sign Up">
+
+
+
+</form>
+
+
+<%- include('../partials/footer') %> 

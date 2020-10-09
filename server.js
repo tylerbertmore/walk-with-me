@@ -1,6 +1,8 @@
 //-------------------------------------------- MODULES
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 require('dotenv').config();
 const PORT = process.env.PORT;
 
@@ -10,7 +12,9 @@ app.set('view engine', 'ejs')
 
 //-------------------------------------------- MIDDLEWARE
 const ctrl = require('./controllers');
-
+const db = require('./models');             
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 
 // MORGAN REPLACEMENT
 app.use((req, res, next) => {
@@ -23,8 +27,27 @@ app.use((req, res, next) => {
 
 
 //-------------------------------------------- ROUTES
+// Root route
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+// Signup route
+    //get
+app.get('/signup', (req, res) => {
+    res.render('users/signup');
+});
+    //post
+app.post('/signup', (req, res) => {
+    db.User.create(req.body, (err, newUser) => {
+        if(err) return console.log(err)
+        res.redirect('/');
+    })
+})
+
+// Login route
+app.get('/login', (req, res) => {
+    res.render('users/login');
 });
 
 
