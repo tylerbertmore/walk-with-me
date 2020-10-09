@@ -10,21 +10,21 @@ TBD
 
 ## WIRE FRAMES
 - **Landing page** 
-![LandingPage](https://imgur.com/R6mqjsD.png)
+![LandingPage](./resources/wireframes/wogdalker_landing_1.png)
 - **Login page** 
-![LoginPage](https://imgur.com/wAGuglg.png)
+![LoginPage](./resources/wireframes/wogdalker_login_1.png)
 - **Signup page** 
-![SignupPage](https://imgur.com/p0M21sS.png)
+![SignupPage](./resources/wireframes/wogdalker_signup_1.png)
 - **Dog index page** 
-![AllDogsPage](https://imgur.com/nAmR87Y.png)
+![AllDogsPage](./resources/wireframes/wogdalker_dogindex_1.png)
 - **User index page** 
-![AllUsersPage](https://imgur.com/TMpzadL.png)
+![AllUsersPage](./resources/wireframes/wogdalker_userindex_1.png)
 - **User page** 
-![UserPage](https://imgur.com/nU2I7rK.png)
+![UserPage](./resources/wireframes/wogdalker_userpage_1.png)
 - **Dog page** 
-![DogPage](https://imgur.com/yRhtLKl.png)
+![DogPage](./resources/wireframes/wogdalker_dogpage_1.png)
 - **Booking page** 
-![BookingPage](https://imgur.com/LVlXC6t.png)
+![BookingPage](./resources/wireframes/wogdalker_bookingpage_1.png)
 
 ## MVP User Stories
 - Upon arriving onsite, viewers will be prevented with a login page with RescuePup look and feel that allows a user to login with their own personal credentials.
