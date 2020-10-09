@@ -9,7 +9,22 @@ TBD
 
 
 ## WIRE FRAMES
-TBD
+- **Landing page** 
+![Landing Page](./resources/wireframes/wogdalker_landing_1.png)
+- **Login page** 
+![Login Page](./resources/wireframes/wogdalker_login_1.png)
+- **Signup page** 
+![Signup Page](./resources/wireframes/wogdalker_signup_1.png)
+- **Dog index page** 
+![All Dogs Page](./resources/wireframes/wogdalker_dogindex_1.png)
+- **User index page** 
+![All Users Page](./resources/wireframes/wogdalker_userindex_1.png)
+- **User page** 
+![User Page](./resources/wireframes/wogdalker_userpage_1.png)
+- **Dog page** 
+![Dog Page](./resources/wireframes/wogdalker_dogpage_1.png)
+- **Booking page** 
+![Booking Page](./resources/wireframes/wogdalker_bookingpage_1.png)
 
 ## MVP User Stories
 - Upon arriving onsite, viewers will be prevented with a login page with RescuePup look and feel that allows a user to login with their own personal credentials.
