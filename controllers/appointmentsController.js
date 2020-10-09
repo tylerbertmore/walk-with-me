@@ -4,7 +4,7 @@ const router = express.Router();
 
 //-------------------------------------------- ROUTES
 router.get('/', (req,res) => {
-    res.send('dogs index');
+    res.send('appoints index');
 })
 
 module.exports = router

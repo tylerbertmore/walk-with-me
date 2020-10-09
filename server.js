@@ -9,6 +9,8 @@ app.set('view engine', 'ejs')
 
 
 //-------------------------------------------- MIDDLEWARE
+const ctrl = require('./controllers');
+
 
 // MORGAN REPLACEMENT
 app.use((req, res, next) => {
@@ -18,11 +20,26 @@ app.use((req, res, next) => {
     console.log(`${method} ${path} ${timestamp}`);
     next(); // Allow the request to move on to the next middleware in the chain
   });
+
+
 //-------------------------------------------- ROUTES
 app.get('/', (req, res) => {
     res.render('index');
-})
+});
 
+
+// Users controller
+app.use('/users', ctrl.users);
+// Dogs controller
+app.use('/dogs', ctrl.dogs);
+//Appointments controller
+app.use('/appointments', ctrl.appointments);
+
+
+//404
+app.get('*', (req, res) => {
+    res.render('404');
+})
 
 
 //-------------------------------------------- LISTENER
