@@ -10,21 +10,21 @@ TBD
 
 ## WIRE FRAMES
 - **Landing page** 
-![LandingPage](https://imgur.com/R6mqjsD)
+![LandingPage](https://imgur.com/R6mqjsD.png)
 - **Login page** 
-![LoginPage](https://imgur.com/wAGuglg)
+![LoginPage](https://imgur.com/wAGuglg.png)
 - **Signup page** 
-![SignupPage](https://imgur.com/p0M21sS)
+![SignupPage](https://imgur.com/p0M21sS.png)
 - **Dog index page** 
-![AllDogsPage](https://imgur.com/nAmR87Y)
+![AllDogsPage](https://imgur.com/nAmR87Y.png)
 - **User index page** 
-![AllUsersPage](https://imgur.com/TMpzadL)
+![AllUsersPage](https://imgur.com/TMpzadL.png)
 - **User page** 
-![UserPage](https://imgur.com/nU2I7rK)
+![UserPage](https://imgur.com/nU2I7rK.png)
 - **Dog page** 
-![DogPage](https://imgur.com/yRhtLKl)
+![DogPage](https://imgur.com/yRhtLKl.png)
 - **Booking page** 
-![BookingPage](https://imgur.com/LVlXC6t)
+![BookingPage](https://imgur.com/LVlXC6t.png)
 
 ## MVP User Stories
 - Upon arriving onsite, viewers will be prevented with a login page with RescuePup look and feel that allows a user to login with their own personal credentials.
