@@ -12,11 +12,7 @@ db.Dog.insertMany(firstDogs, (err, newDogs) => {
 //-------------------------------------------- ROUTES
 // paths assume '/dogs'
 
-router.get('/', (req,res) => {
-    res.send('dogs index');
-})
-
-router.get('/index', (req, res) => {
+router.get('/', (req, res) => {
     db.Dog.find({}, (err, allDogs) => {
         console.log(allDogs);
         err ? console.log(err) : res.render('dogs/index', {allDogs: allDogs})
