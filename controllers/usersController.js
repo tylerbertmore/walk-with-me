@@ -3,6 +3,8 @@ const router = express.Router();
 
 
 //-------------------------------------------- ROUTES
+// all routes assume '/users'
+
 router.get('/', (req,res) => {
     res.send('users index');
 })
