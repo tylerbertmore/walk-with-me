@@ -1,0 +1,14 @@
+<%- include('../partials/header') %> 
+
+<ul>
+    <% allDogs.forEach(item => { %>
+        <li>
+            <a href="./<%= item.id %>">
+                <%= item.name %>
+            </a>
+        </li>
+    <% }) %>
+</ul>
+
+
+<%- include('../partials/footer') %> 
