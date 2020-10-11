@@ -1,10 +1,10 @@
 <%- include('../partials/header') %> 
 
 <ul>
-    <% allDogs.forEach(item => { %>
+    <% allUsers.forEach(item => { %>
         <li>
-            <a href="./dogs/<%= item.id %>">
-                <%= item.name %>
+            <a href="./users/<%= item.id %>">
+                <%= item.fullName %>
             </a>
         </li>
     <% }) %>

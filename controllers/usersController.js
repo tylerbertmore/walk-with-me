@@ -5,6 +5,14 @@ const db = require('../models');
 
 //-------------------------------------------- ROUTES
 // all routes assume '/users'
+router.get('/', (req, res) => {
+    db.User.find({}, (err, allUsers) => {
+        if(err) return console.log(err);
+        res.render('users/index', {
+            allUsers: allUsers
+        })
+    })
+})
 
 // render dashboard upon logging in
 router.get('/:user', (req,res) => {
