@@ -37,7 +37,11 @@
             Email: <input type="email" name="email" placeholder="Email" value="<%= user.email %>">
         </label>
     </div>
-    <input type="submit" value="Sign Up">
+    <input type="submit" value="Submit Edits">
+</form>
+<h1>Delete Your Account</h1>
+<form action="/users/<%= user._id %>?_method=DELETE" method="post">
+    <input type="submit" value="Delete Account">
 </form>
 
 
