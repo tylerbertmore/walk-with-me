@@ -3,10 +3,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 require('dotenv').config();
 const PORT = process.env.PORT;
-const passport = require('passport');
-const localStrategy = require('passport-local');
+
+
 
 //-------------------------------------------- VIEW ENGINE
 app.set('view engine', 'ejs')
@@ -18,16 +21,18 @@ const db = require('./models');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
+
 app.use(require('express-session')({
-    secret: "Auth is fun",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new localStrategy(db.User.authenticate()));
+passport.use(new LocalStrategy(db.User.authenticate()));
 passport.serializeUser(db.User.serializeUser());
 passport.deserializeUser(db.User.deserializeUser());
+
 
 
 // MORGAN REPLACEMENT
@@ -53,14 +58,12 @@ app.get('/signup', (req, res) => {
 });
     //post
 app.post('/signup', (req, res) => {
-    const newUser = new db.User({username: req.body.username})
+    const newUser = new db.User({username: req.body.username, fullName: req.body.fullName, gender: req.body.gender, birthday: req.body.birthday})
     db.User.register(newUser, req.body.password), (err, user) => {
-        if(err) console.log(err);
-        return res.render('users/signup');
+        if(err) return console.log(err)
+        
     }
-    passport.authenticate('local')(req, res, () => {
-        res.render('users/index');
-    })
+    res.redirect('signup')
 })
 
 // Login route
