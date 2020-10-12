@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models');
 
 
+
 //-------------------------------------------- ROUTES
 // all routes assume '/users'
 router.get('/', (req, res) => {
