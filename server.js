@@ -57,13 +57,13 @@ app.get('/signup', (req, res) => {
     res.render('users/signup');
 });
     //post
-app.post('/signup', (req, res) => {
+app.post('/signup', async (req, res) => {
     const newUser = new db.User({username: req.body.username, fullName: req.body.fullName, gender: req.body.gender, birthday: req.body.birthday})
-    db.User.register(newUser, req.body.password), (err, user) => {
+    const registeredUser = await db.User.register(newUser, req.body.password)
+    req.login(registeredUser, err => {
         if(err) return console.log(err)
-        
-    }
-    res.redirect('signup')
+        res.redirect('users');
+    })
 })
 
 // Login route
@@ -71,7 +71,15 @@ app.get('/login', (req, res) => {
     res.render('users/login');
 });
 
+app.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req, res) => {
+    res.redirect('/users');
+});
 
+// Logout route
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('dogs')
+})
 
 // Users controller
 app.use('/users', ctrl.users);
