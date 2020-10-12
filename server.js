@@ -22,6 +22,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
 
+
+
 app.use(require('express-session')({
     secret: process.env.SECRET,
     resave: false,
@@ -33,7 +35,10 @@ passport.use(new LocalStrategy(db.User.authenticate()));
 passport.serializeUser(db.User.serializeUser());
 passport.deserializeUser(db.User.deserializeUser());
 
-
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // MORGAN REPLACEMENT
 app.use((req, res, next) => {
