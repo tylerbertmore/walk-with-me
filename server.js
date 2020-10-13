@@ -28,8 +28,14 @@ app.use(methodOverride('_method'));
 app.use(require('express-session')({
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true, // what does this do?
+    cookie: {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(db.User.authenticate()));
