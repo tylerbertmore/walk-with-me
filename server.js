@@ -74,7 +74,7 @@ app.post('/signup', async (req, res) => {
     const registeredUser = await db.User.register(newUser, req.body.password)
     req.login(registeredUser, err => {
         if(err) return console.log(err)
-        res.redirect('users');
+        res.redirect(`users/${req.user._id}/dashboard`);
     })
 })
 
