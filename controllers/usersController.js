@@ -5,8 +5,16 @@ const db = require('../models');
 
 
 //-------------------------------------------- ROUTES
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
+
 // all routes assume '/users'
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     db.User.find({}, (err, allUsers) => {
         if(err) return console.log(err);
         res.render('users/index', {
@@ -16,14 +24,14 @@ router.get('/', (req, res) => {
 })
 
 // render page with just user info
-router.get('/:user/', (req, res) => {
+router.get('/:user/', isLoggedIn, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         err ? console.log(err) : res.render('users/show', {user: foundUser})
     })
 })
 
 // render dashboard upon logging in
-router.get('/:user/dashboard', (req,res) => {
+router.get('/:user/dashboard', isLoggedIn, (req,res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         if (err) return console.log(err);
         db.Appointment.find({'walker:id': req.params.user}, (err, appointments) => {
@@ -36,14 +44,14 @@ router.get('/:user/dashboard', (req,res) => {
 })
 
 // render page to edit or delete account
-router.get('/:user/edit', (req, res) => {
+router.get('/:user/edit', isLoggedIn, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         err ? console.log(err) : res.render('users/edit', {user: foundUser})
     })
 })
 
 // update account info in database
-router.put('/:user', (req, res) => {
+router.put('/:user', isLoggedIn, (req, res) => {
     db.User.findByIdAndUpdate(req.params.user,
         req.body,
         {new: true},
@@ -53,7 +61,7 @@ router.put('/:user', (req, res) => {
 })
 
 // delete account from database
-router.delete('/:user', (req, res) => {
+router.delete('/:user', isLoggedIn, (req, res) => {
     db.User.findByIdAndDelete(req.params.user, (err, deleted) => {
         err ? console.log(err) : res.redirect('../')
     })

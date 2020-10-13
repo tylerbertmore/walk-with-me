@@ -10,6 +10,14 @@ db.Dog.insertMany(firstDogs, (err, newDogs) => {
 })
 
 //-------------------------------------------- ROUTES
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}
+
 // paths assume '/dogs'
 
 router.get('/', (req, res) => {
@@ -24,7 +32,7 @@ router.get('/:dogId', (req, res) => {
     })
 })
 
-router.post('/:dogId', (req, res) => {
+router.post('/:dogId', isLoggedIn, (req, res) => {
     db.User.findById(req.user._id, (err, foundUser) => {
         if (err) console.log(err);
         db.Dog.findById(req.params.dogId, (err, foundDog) => {
