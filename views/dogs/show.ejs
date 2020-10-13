@@ -1,19 +1,39 @@
 <%- include('../partials/header') %> 
 
-<img src="<%= dog.img %>">
-<h1><%= dog.name %></h1>
-<p><%= dog.sex %> <%= dog.breed %></p>
-<p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
+<section>
+            <div id="hero">
+                <figure><div></div></figure>
+                <div id="feature">
 
-<% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
-<% let dogBirth = Date.parse(dog.birthDate); %>
-<% let current = Date.parse(new Date()); %>
-<% let time = (current - dogBirth) * year; %>
-<p>Age: <%= Math.floor(time); %></p>
+                    <div>
+                        <div class="bigwindow">
+                            <img src="<%= dog.img %>">
+                        </div>
+                        <figcaption>
+                            <h2> <%= dog.name %> </h2>
+                        </figcaption>
+                    </div>
 
-<form action="/dogs/<%= dog.id %>" method="post">
-    <button>BOOK THIS DOG!</button>
-</form>
+                    <article>
+                        <p>Sex: <%= dog.sex %></p>
+                        <p>Breed: <%= dog.breed %></p>
+                        <p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
+
+                        <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
+                        <% let dogBirth = Date.parse(dog.birthDate); %>
+                        <% let current = Date.parse(new Date()); %>
+                        <% let time = (current - dogBirth) * year; %>
+                        <p>Age: <%= Math.floor(time); %></p>
+
+                        <form action="/dogs/<%= dog.id %>" method="post">
+                            <button>BOOK THIS DOG!</button>
+                        </form>
+                    </article>
+
+                </div>
+            </div>
+</section>
+
 
 
 

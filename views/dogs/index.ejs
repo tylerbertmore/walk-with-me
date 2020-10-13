@@ -1,19 +1,56 @@
 <%- include('../partials/header') %> 
 <h1>CHOOSE YOUR WEAPON:</h1>
+<% let random = Math.floor(Math.random() * allDogs.length); %>
+<% let dog = allDogs[random]; %>
 <section>
-    <% allDogs.forEach(item => { %>
-        <a href="/dogs/<%= item.id %>">
-            <div class="tile">
-                <figure><div></div></figure>
-                <div class="window">
-                    <img src="<%= item.img %>">
+    <div id="hero">
+        <figure><div></div></figure>
+        <div id="feature">
+
+            <div>
+                <div class="bigwindow">
+                    <img src="<%= dog.img %>">
                 </div>
                 <figcaption>
-                    <h2> <%= item.name %> </h2>
+                    <h2> <%= dog.name %> </h2>
                 </figcaption>
             </div>
-        </a>
+
+            <article>
+                <p>Sex: <%= dog.sex %></p>
+                <p>Breed: <%= dog.breed %></p>
+                <p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
+
+                <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
+                <% let dogBirth = Date.parse(dog.birthDate); %>
+                <% let current = Date.parse(new Date()); %>
+                <% let time = (current - dogBirth) * year; %>
+                <p>Age: <%= Math.floor(time); %></p>
+
+                <form action="/dogs/<%= dog.id %>" method="post">
+                    <button>BOOK THIS DOG!</button>
+                </form>
+            </article>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div id="tiles">
+        <% allDogs.forEach(item => { %>
+            <a href="/dogs/<%= item.id %>">
+                <div class="tile">
+                    <figure><div></div></figure>
+                    <div class="smallwindow">
+                        <img src="<%= item.img %>">
+                    </div>
+                    <figcaption>
+                        <h2> <%= item.name %> </h2>
+                    </figcaption>
+                </div>
+            </a>
         <% }) %>
+    </div>
 </section>
 
 
