@@ -1,14 +1,20 @@
 <%- include('../partials/header') %> 
 
-<ul>
+
+    <section class="profile-grid">
     <% allUsers.forEach(item => { %>
-        <li>
-            <a href="./users/<%= item.id %>">
-                <%= item.fullName %>
+        
+            <div class="profile-card">
+                <a href="./users/<%= item.id %>">
+                <img class="profile-pic-index" src="/images/default-user.png" alt="Profile Pic">
+                <p><%= item.fullName %></p>   
             </a>
-        </li>
-    <% }) %>
-</ul>
+                
+            </div>
+    
+        <% }) %>
+        </section>
+
 
 
 <%- include('../partials/footer') %> 

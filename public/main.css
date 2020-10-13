@@ -119,3 +119,46 @@ a:link {
 a:visited {
     color: inherit;
 }
+
+
+/* USER INDEX  */
+.profile-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1%;
+    overflow: hidden;
+}
+
+.profile-card a:hover {
+    border: none;
+    
+}
+
+
+.profile-card p {
+    position:   absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 100%;
+    background-color: steelblue;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    
+}
+
+.profile-pic-index {
+    width: 200px;
+    height: 200px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
