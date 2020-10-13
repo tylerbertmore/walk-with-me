@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='/main.css'>
     <title>Walk With Me</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/"></a></li>
-            <li><a href="/dogs">Dogs</a></li>
-            <li><a href="/users">All Dog Walkers</a></li>
+    <header>
+        <nav>
+            <div><a href=""><img src="/images/branding/rplogoLIGHT.svg" class="logo"></a></div>
+            <div><a href="/dogs">Dogs</a></div>
+            <div><a href="/users">All Dog Walkers</a></div>
             <% if(!currentUser)  { %>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
+            <div><a href="/login">Login</a></div>
+            <div><a href="/signup">Signup</a></div>
                 <% } else { %>
-            <li><a href="/users/<%= currentUser._id %>"><%= currentUser.fullName %></a></li>
-            <li><a href="/logout">Logout</a></li>
+            <div><a href="/users/<%= currentUser._id %>"><%= currentUser.fullName %></a></div>
+            <div><a href="/logout">Logout</a></div>
                     <% } %>
-        </ul>
-    </nav>
+        </nav>
+    </header>
+    <main>
