@@ -1,0 +1,64 @@
+:root {
+    --grey: #dddddd;
+    --light: #0174da;
+    --dark: #011e3e;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: var(--grey);
+    color: var(--dark);
+    text-decoration: none;
+}
+
+header {
+    background: var(--dark);
+    width: 100%;
+    height: 80px;
+    color: var(--light);
+    font-size: 30px;
+}
+
+nav {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+nav > div {
+    padding: 50px;
+}
+
+main {
+    height: 90vh;
+    width: 80%;
+    margin: 0 auto;
+}
+
+footer {
+    background: var(--dark);
+    height: 200px;
+    width: 100%;
+    color: var(--light);
+}
+
+a:hover {
+    border-top: 4px solid white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
