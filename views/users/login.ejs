@@ -1,21 +1,24 @@
 <%- include('../partials/header') %> 
 
-<h1>LOGIN HERE</h1>
-<form action="/login" method="POST">
-    <!-- USERNAME -->
-    <div>
-        <label for="username" >
-            <input type="text" name="username" placeholder="Username">
-        </label>
-    </div>
-     <!-- PASSWORD -->
-    <div>
-        <label for="password" >
-            <input type="password" name="password" placeholder="Password">
-        </label>
-    </div>
-    <input type="submit" value="Login">
-    </form>
+<div class="form-container">
+    <h1>LOGIN<span><a href="/signup">Sign Up?</a></span></h1>
+    <form action="/login" method="POST">
+        <!-- USERNAME -->
+        <div >
+            <label for="username" >
+                <input type="text" name="username" placeholder="Username">
+            </label>
+        </div>
+         <!-- PASSWORD -->
+        <div>
+            <label for="password" >
+                <input type="password" name="password" placeholder="Password">
+            </label>
+        </div>
+        <input class="submit" type="submit" value="Login">
+        </form>
+</div>
+
 
 
 <%- include('../partials/footer') %> 
