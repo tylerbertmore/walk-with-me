@@ -24,5 +24,20 @@ router.get('/:dogId', (req, res) => {
     })
 })
 
+router.post('/:dogId', (req, res) => {
+    db.User.findById(req.user._id, (err, foundUser) => {
+        if (err) console.log(err);
+        db.Dog.findById(req.params.dogId, (err, foundDog) => {
+            if (err) console.log(err);
+            db.Appointment.create({
+                walker: foundUser,
+                walkedDog: foundDog,
+            }, (err, newAppointment) => {
+                err ? console.log(err) : res.redirect(`/users/${req.user._id}/dashboard`)
+            })
+        })
+    })
+})
+
 
 module.exports = router

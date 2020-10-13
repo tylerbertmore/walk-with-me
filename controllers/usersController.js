@@ -25,12 +25,15 @@ router.get('/:user/', (req, res) => {
 // render dashboard upon logging in
 router.get('/:user/dashboard', (req,res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
-        // add appointments query
-        err ? console.log(err) : res.render('users/dashboard', {user: foundUser})
+        if (err) return console.log(err);
+        db.Appointment.find({'walker:id': req.params.user}, (err, appointments) => {
+            err ? console.log(err) : res.render('users/dashboard', {
+                user: foundUser,
+                appointments, appointments
+            })
+        })
     })
 })
-
-
 
 // render page to edit or delete account
 router.get('/:user/edit', (req, res) => {

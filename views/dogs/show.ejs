@@ -11,7 +11,9 @@
 <% let time = (current - dogBirth) * year; %>
 <p>Age: <%= Math.floor(time); %></p>
 
-
+<form action="/dogs/<%= dog.id %>" method="post">
+    <button>BOOK THIS DOG!</button>
+</form>
 
 
 
