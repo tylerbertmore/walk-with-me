@@ -10,6 +10,10 @@ const userSchema = new mongoose.Schema({
     },
     birthday: Date,
     email: String,
+    favDog: {        
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Dog'
+    }
 
 }, {timestamps: true})
 

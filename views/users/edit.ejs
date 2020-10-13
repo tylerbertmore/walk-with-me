@@ -1,41 +1,69 @@
 <%- include('../partials/header') %> 
 
-<h1>Edit Your Info</h1>
-<form action="/users/<%= user._id %>?_method=PUT" method="post">
-    <!-- FULL NAME -->
-    <div>
-        <label for="fullName" >
-            Full Name: <input type="text" name="fullName" value="<%= user.fullName %>">
-        </label>
-    </div>
-    <!-- GENDER-->
-    <div>
-        <label for="gender" >
-            Gender: <input type="text" name="gender" value="<%= user.gender %>">
-        </label>
-    </div>
-    <!-- BIRTHDATE -->
-    <div>
-        <label for="birthday" >
-            Birthday: <input type="date" name="birthday" value="<%= user.birthday %>">
-        </label>
-    </div>
-    <div>
-        <label for="email" >
-            Email: <input type="email" name="email" placeholder="Email" value="<%= user.email %>">
-        </label>
-    </div>
-    <div>
-        <label for="userImg" >
-            Profile Pic: <input type="url" name="userImg" placeholder="Profile Pic" value="<%= user.userImg || '' %>">
-        </label>
-    </div>
-    <input type="submit" value="Submit Edits">
-</form>
-<h1>Delete Your Account</h1>
-<form action="/users/<%= user._id %>?_method=DELETE" method="post">
-    <input type="submit" value="Delete Account">
-</form>
+
+<h2 class="featured-walker-top">Edit Your Profile</h2>
+<section class="hero-walker edit-side">
+        <div class="profile-card">
+            <a href="./users/<%= user.id %>">
+            <img class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
+        </a>
+        <form action="/users/<%= user._id %>?_method=DELETE" method="post">
+            <input class="btn-danger" type="submit" value="Delete Account">
+        </form>
+        </div>
+        <div class="featured-side">
+
+            <div>
+                <form action="/users/<%= user._id %>?_method=PUT" method="post">
+                    <!-- FULL NAME -->
+                    <div>
+                        <label for="fullName" >
+                            Full Name: <input type="text" name="fullName" value="<%= user.fullName %>">
+                        </label>
+                    </div>
+                    <!-- GENDER-->
+                    <div>
+                        <label for="gender" >
+                            Gender: <input type="text" name="gender" value="<%= user.gender %>">
+                        </label>
+                    </div>
+                    <!-- BIRTHDATE -->
+                    <div>
+                        <label for="birthday" >
+                            Birthday: <input type="date" name="birthday" value="<%= user.birthday.toISOString().substr(0, 10); %>">
+                        </label>
+                    </div>
+                    Email:
+                    <div>
+                        <label for="email" >
+                        <input type="email" name="email" placeholder="Email" value="<%= user.email %>">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="userImg" >
+                            Profile Pic: <input type="url" name="userImg" placeholder="Profile Pic" value="<%= user.userImg || '' %>">
+                        </label>
+                    </div>
+                    <div>
+                        <label for="favDogs">Favorite Dog:</label>
+                        <select id="favDogs" name="favDogs">
+                          <option value="none">None</option>
+                          <% allDogs.forEach((dog) => { %>
+                          <option value="<%= dog._id %>"><%= dog.name %></option>
+                          <% }) %>
+                        </select>
+                    </div>
+                    <input class="btn-success" type="submit" value="Submit Changes">
+                </form>
+                
+
+            </div>
+
+        </div>
+
+</section>
+
+
 
 
 <%- include('../partials/footer') %> 

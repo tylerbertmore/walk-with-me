@@ -53,7 +53,14 @@ router.get('/:user/dashboard', isLoggedIn, (req,res) => {
 // render page to edit or delete account
 router.get('/:user/edit', isLoggedIn, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
-        err ? console.log(err) : res.render('users/edit', {user: foundUser})
+        if(err) return console.log(err);
+        db.Dog.find({}, (err, allDogs) => {
+            err ? console.log(err) : res.render('users/edit', {
+                user: foundUser,
+                allDogs: allDogs,
+            })
+
+        })
     })
 })
 

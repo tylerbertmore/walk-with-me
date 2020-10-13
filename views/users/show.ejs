@@ -3,10 +3,8 @@
 <h2 class="featured-walker-top">Your Profile</h2>
 <section class="hero-walker">
         <div class="profile-card">
-            <a href="./users/<%= user.id %>">
             <img class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
             <a href="/users/<%= user._id %>/edit"><button class="delete-edit-btn">Delete/Edit Account</button></a>   
-        </a>
         </div>
         <div class="featured-side">
             <div>
@@ -17,7 +15,7 @@
                 <p>Dogs walked: 0</p>
                 <p>Gender: <%= user.gender %></p>
                 <p>Birthday: <%= user.birthday.toISOString().replace('T', ' ').substr(0, 11); %></p>
-                <p>Favorite Dog: None yet :(</p>
+                <p>Favorite Dog: N/A</p>
             </div>
 
         </div>
