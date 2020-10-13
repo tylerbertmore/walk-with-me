@@ -11,7 +11,7 @@
 }
 
 body {
-    background: var(--grey);
+    background: white;
     color: var(--dark);
     text-decoration: none;
     font-family: 'Jost', sans-serif;
@@ -43,7 +43,7 @@ main {
     height: 90vh;
     width: 80%;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 /* FORM STYLES */
@@ -125,6 +125,8 @@ a:visited {
 .profile-grid {
     display: flex;
     flex-wrap: wrap;
+    background-color: #ddd;
+    margin-bottom: 8%;
 }
 
 .profile-card {
@@ -162,3 +164,46 @@ a:visited {
     border-top-right-radius: 40px;
 }
 
+.all-walkers {
+    font-size: 30px;
+    text-align: center;
+    border: steelblue 5px solid;
+}
+/* FEATURED WALKER */
+h2 {
+    font-size: 40px;
+    text-align: center;
+    padding: 0;
+    border: steelblue 5px solid;
+}
+.featured-side h2 {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    border: none;
+}
+
+.featured-side{
+    margin: 2%;
+    padding: 3%;
+    /* text-align: center; */
+    width: 50%;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.hero-walker {
+    display: flex;
+    margin-bottom: 3%;
+    background-color: #ddd;
+    padding: 3%;
+    position: relative;
+}
+.hero-walker img {
+    height: 300px;
+    width: 300px;
+}

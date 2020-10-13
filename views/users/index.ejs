@@ -1,6 +1,27 @@
 <%- include('../partials/header') %> 
+<h2>Featured Walker</h2>
+<section class="hero-walker">
+    <% const rand = Math.floor(Math.random() * allUsers) %>
+        <div class="profile-card">
+            <a href="./users/<%= allUsers[1].id %>">
+            <img class="profile-pic-index" src="/images/default-user.png" alt="Profile Pic">
+            <p><%= allUsers[1].fullName %></p>   
+        </a>
+        </div>
+        <div class="featured-side">
+            <div>
+                <h2><%= allUsers[1].fullName %></h2>
+            </div>
+            <div>
+                <p>Member Since:</p>
+                <p>Dogs walked: 0</p>
+                <p>Favorite Dog: </p>
+            </div>
 
+        </div>
 
+</section>
+<h3 class="all-walkers">All Dog Walkers</h3>
     <section class="profile-grid">
     <% allUsers.forEach(item => { %>
         
