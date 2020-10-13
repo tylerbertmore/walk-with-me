@@ -67,7 +67,7 @@ const dogs = [
         breed: 'Golden Retriever',
         birthDate: '12/12/2015',
         sex: 'Male',
-        img: '/images/dogpics/goldenretriever.jpg'
+        img: '/images/dogpics/goldenretreiver.jpg'
     },
     {
         name: 'Jane',
