@@ -42,16 +42,16 @@
     </section>
             <section>
                     
-                    <a href="/dogs/<%= allDogs[1].id %>">
+                    <a href="/dogs/<%= favDog._id %>">
                         <h3>Favorite Dog</h3>
                         <div class="tile">
                             
                             <figure><div></div></figure>
                             <div class="window">
-                                <img src="<%= allDogs[1].img %>">
+                                <img src="<%= favDog.img %>">
                             </div>
                             <figcaption>
-                                <h2> <%= allDogs[1].name %> </h2>
+                                <h2> <%= favDog.name %> </h2>
                             </figcaption>
                         </div>
                     </a>

@@ -45,11 +45,11 @@
                         </label>
                     </div>
                     <div>
-                        <label for="favDogs">Favorite Dog:</label>
-                        <select id="favDogs" name="favDogs">
+                        <label for="favDog">Favorite Dog:</label>
+                        <select id="favDog" name="favDog">
                           <option value="none">None</option>
                           <% allDogs.forEach((dog) => { %>
-                          <option value="<%= dog._id %>"><%= dog.name %></option>
+                          <option value="<%= dog.id %>"><%= dog.name %></option>
                           <% }) %>
                         </select>
                     </div>
