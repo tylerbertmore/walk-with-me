@@ -2,18 +2,6 @@
 
 <h1>Edit Your Info</h1>
 <form action="/users/<%= user._id %>?_method=PUT" method="post">
-    <!-- USERNAME -->
-    <div>
-        <label for="username">
-            Username: <input type="text" name="username" value="<%= user.username %>">
-        </label>
-    </div>
-     <!-- PASSWORD -->
-    <div>
-        <label for="password" >
-            Password: <input type="password" name="password" value="<%= user.password %>">
-        </label>
-    </div>
     <!-- FULL NAME -->
     <div>
         <label for="fullName" >
@@ -35,6 +23,11 @@
     <div>
         <label for="email" >
             Email: <input type="email" name="email" placeholder="Email" value="<%= user.email %>">
+        </label>
+    </div>
+    <div>
+        <label for="userImg" >
+            Profile Pic: <input type="url" name="userImg" placeholder="Profile Pic" value="<%= user.userImg || '' %>">
         </label>
     </div>
     <input type="submit" value="Submit Edits">

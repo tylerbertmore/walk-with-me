@@ -26,7 +26,14 @@ router.get('/', isLoggedIn, (req, res) => {
 // render page with just user info
 router.get('/:user/', isLoggedIn, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
-        err ? console.log(err) : res.render('users/show', {user: foundUser})
+        if(err) return console.log(err);
+        db.Dog.find({}, (err, allDogs) => {
+            err ? console.log(err) : res.render('users/show', {
+                user: foundUser,
+                allDogs: allDogs,
+            })
+        })
+        
     })
 })
 
