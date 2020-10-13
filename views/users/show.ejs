@@ -1,7 +1,13 @@
 <%- include('../partials/header') %> 
 
 <h1>THIS IS YOUR USER PROFILE</h1>
-<%= user %>
-<a href="./edit"><button>Delete/Edit Account</button></a>
+<ul>
+    <li>Name: <%= user.fullName %></li>
+    <li>Gender: <%= user.gender %></li>
+    <li>Birthday: <%= user.birthday %></li>
+    <li>Member Since: <%= user.createdAt %></li>
+</ul>
+
+<a href="/users/<%= user._id %>/edit"><button>Delete/Edit Account</button></a>
 
 <%- include('../partials/footer') %> 

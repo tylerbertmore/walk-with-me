@@ -3,8 +3,13 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 require('dotenv').config();
 const PORT = process.env.PORT;
+
+
 
 //-------------------------------------------- VIEW ENGINE
 app.set('view engine', 'ejs')
@@ -15,6 +20,25 @@ const ctrl = require('./controllers');
 const db = require('./models');             
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
+app.use(express.static(__dirname + '/public'));
+
+
+
+app.use(require('express-session')({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(db.User.authenticate()));
+passport.serializeUser(db.User.serializeUser());
+passport.deserializeUser(db.User.deserializeUser());
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // MORGAN REPLACEMENT
 app.use((req, res, next) => {
@@ -38,10 +62,12 @@ app.get('/signup', (req, res) => {
     res.render('users/signup');
 });
     //post
-app.post('/signup', (req, res) => {
-    db.User.create(req.body, (err, newUser) => {
+app.post('/signup', async (req, res) => {
+    const newUser = new db.User({username: req.body.username, fullName: req.body.fullName, gender: req.body.gender, birthday: req.body.birthday})
+    const registeredUser = await db.User.register(newUser, req.body.password)
+    req.login(registeredUser, err => {
         if(err) return console.log(err)
-        res.redirect('/');
+        res.redirect('users');
     })
 })
 
@@ -50,6 +76,15 @@ app.get('/login', (req, res) => {
     res.render('users/login');
 });
 
+app.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req, res) => {
+    res.redirect('/users');
+});
+
+// Logout route
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('dogs')
+})
 
 // Users controller
 app.use('/users', ctrl.users);

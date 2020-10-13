@@ -5,16 +5,15 @@ const db = require('../models');
 //--------------------------------- SEED DOGS
 const firstDogs = require('../models/dogs.js');
 
-db.Dog.insertMany(firstDogs, (err, newDogs) => {
-    err ? console.log(err) : null //console.log(newDogs);
-})
+// db.Dog.insertMany(firstDogs, (err, newDogs) => {
+//     err ? console.log(err) : null //console.log(newDogs);
+// })
 
 //-------------------------------------------- ROUTES
 // paths assume '/dogs'
 
 router.get('/', (req, res) => {
     db.Dog.find({}, (err, allDogs) => {
-        console.log(allDogs);
         err ? console.log(err) : res.render('dogs/index', {allDogs: allDogs})
     })
 })

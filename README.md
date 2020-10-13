@@ -10,21 +10,21 @@ TBD
 
 ## WIRE FRAMES
 - **Landing page** 
-![LandingPage](./resources/wireframes/wogdalker_landing_1.png)
+![LandingPage](./public/images/wireframes/wogdalker_landing_1.png)
 - **Login page** 
-![LoginPage](./resources/wireframes/wogdalker_login_1.png)
+![LoginPage](./public/images/wireframes/wogdalker_login_1.png)
 - **Signup page** 
-![SignupPage](./resources/wireframes/wogdalker_signup_1.png)
+![SignupPage](./public/images/wireframes/wogdalker_signup_1.png)
 - **Dog index page** 
-![AllDogsPage](./resources/wireframes/wogdalker_dogindex_1.png)
+![AllDogsPage](./public/images/wireframes/wogdalker_dogindex_1.png)
 - **User index page** 
-![AllUsersPage](./resources/wireframes/wogdalker_userindex_1.png)
+![AllUsersPage](./public/images/wireframes/wogdalker_userindex_1.png)
 - **User page** 
-![UserPage](./resources/wireframes/wogdalker_userpage_1.png)
+![UserPage](./public/images/wireframes/wogdalker_userpage_1.png)
 - **Dog page** 
-![DogPage](./resources/wireframes/wogdalker_dogpage_1.png)
+![DogPage](./public/images/wireframes/wogdalker_dogpage_1.png)
 - **Booking page** 
-![BookingPage](./resources/wireframes/wogdalker_bookingpage_1.png)
+![BookingPage](./public/images/wireframes/wogdalker_bookingpage_1.png)
 
 ## MVP User Stories
 - Upon arriving onsite, viewers will be presented with a login page with RescuePup look and feel that allows a user to login with their own personal credentials.
@@ -38,7 +38,7 @@ TBD
 - Upcoming dog appointments will be viewable on the users schedule page, where they can also edit these appointments.
 
 ## Database Model
-![mvpDatabase](./resources/database-model.svg)
+![mvpDatabase](./public/images/database-model.svg)
 
 ## Stretch User Stories
 - users can pick a day to schedule their walk

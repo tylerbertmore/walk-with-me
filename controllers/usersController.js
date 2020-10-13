@@ -3,23 +3,34 @@ const router = express.Router();
 const db = require('../models');
 
 
+
 //-------------------------------------------- ROUTES
 // all routes assume '/users'
+router.get('/', (req, res) => {
+    db.User.find({}, (err, allUsers) => {
+        if(err) return console.log(err);
+        res.render('users/index', {
+            allUsers: allUsers
+        })
+    })
+})
+
+// render page with just user info
+router.get('/:user/', (req, res) => {
+    db.User.findById(req.params.user, (err, foundUser) => {
+        err ? console.log(err) : res.render('users/show', {user: foundUser})
+    })
+})
 
 // render dashboard upon logging in
-router.get('/:user', (req,res) => {
+router.get('/:user/dashboard', (req,res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         // add appointments query
         err ? console.log(err) : res.render('users/dashboard', {user: foundUser})
     })
 })
 
-// render page with just user info
-router.get('/:user/show', (req, res) => {
-    db.User.findById(req.params.user, (err, foundUser) => {
-        err ? console.log(err) : res.render('users/show', {user: foundUser})
-    })
-})
+
 
 // render page to edit or delete account
 router.get('/:user/edit', (req, res) => {
