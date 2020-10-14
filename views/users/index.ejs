@@ -4,7 +4,7 @@
     <% const rand = Math.floor(Math.random() * allUsers.length) %>
         <div class="profile-card">
             <a href="./users/<%= allUsers[rand].id %>">
-            <img class="profile-pic-index" src="/images/default-user.png" alt="Profile Pic">
+            <img class="profile-pic-index" src="<%= allUsers[rand].userImg %>" alt="Profile Pic">
             <p><%= allUsers[rand].fullName %></p>   
         </a>
         </div>
@@ -27,7 +27,7 @@
         
             <div class="profile-card">
                 <a href="./users/<%= item.id %>">
-                <img class="profile-pic-index" src="/images/default-user.png" alt="Profile Pic">
+                <img class="profile-pic-index" src="<%= item.userImg %>" alt="Profile Pic">
                 <p><%= item.fullName %></p>   
             </a>
                 
