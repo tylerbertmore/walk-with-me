@@ -68,7 +68,7 @@ h1 span {
     bottom: 0;
     
 }
-input {
+input, select {
     width: 300px;
     margin: 2%;
     height: 30px;
@@ -171,19 +171,26 @@ a:visited {
 
 
 /* USER INDEX  */
-.profile-grid {
+.profile-grid, .profile-grid-user {
     display: flex;
     flex-wrap: wrap;
     background-color: #ddd;
     margin-bottom: 8%;
 }
+.profile-grid-user h3{
+    text-align: center;
+}
 
+.profile-grid-user{
+    justify-content: space-around;
+    padding: 5%;
+    background-color: white;
+}
 .profile-card {
     display: flex;
     flex-direction: column;
     position: relative;
     margin: 1%;
-    overflow: hidden;
 }
 
 .profile-card a:hover {
@@ -192,7 +199,7 @@ a:visited {
 }
 
 
-.profile-card p {
+.profile-card p, .delete-edit-btn {
     position:   absolute;
     z-index: 3;
     bottom: 0;
@@ -204,6 +211,33 @@ a:visited {
     font-size: 20px;
     color: white;
     
+}
+
+.delete-edit-btn{
+    padding: 5px;
+    background-color: goldenrod;
+    cursor: pointer;
+}
+.delete{
+    background-color: crimson;
+}
+
+.edit-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.btn-success{
+    background-color: forestgreen;
+    color: white;
+    cursor: pointer;
+}
+.btn-danger{
+    background-color: crimson;
+    color: white;
+    cursor: pointer;
 }
 
 .profile-pic-index {
