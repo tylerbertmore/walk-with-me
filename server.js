@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('connect-flash');
 const LocalStrategy = require('passport-local');
 require('dotenv').config();
 const PORT = process.env.PORT;
@@ -41,8 +42,11 @@ app.use(passport.session());
 passport.use(new LocalStrategy(db.User.authenticate()));
 passport.serializeUser(db.User.serializeUser());
 passport.deserializeUser(db.User.deserializeUser());
+app.use(flash());
 
 app.use((req, res, next) => {
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     res.locals.currentUser = req.user;
     next();
 });
@@ -84,6 +88,7 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req, res) => {
+    req.flash('success', 'Successfully logged in');
     res.redirect('/users');
 });
 
