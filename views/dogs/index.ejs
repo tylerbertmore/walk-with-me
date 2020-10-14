@@ -1,5 +1,9 @@
 <%- include('../partials/header') %> 
+<div class="flash-container">
+<%- include('../partials/flash') %> 
+</div>
 <main>
+    
 <h1>CHOOSE YOUR WEAPON:</h1>
 <% let random = Math.floor(Math.random() * allDogs.length); %>
 <% let dog = allDogs[random]; %>

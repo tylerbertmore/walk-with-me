@@ -95,6 +95,7 @@ app.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), 
 // Logout route
 app.get('/logout', (req, res) => {
     req.logout();
+    req.flash('success', 'You have logged out Successfully');
     res.redirect('dogs')
 })
 

@@ -10,7 +10,11 @@
 <body>
     <header>
         <nav>
-            <div><a href=""><img src="/images/branding/rplogoLIGHT.svg" class="logo"></a></div>
+            <% if(!currentUser)  { %>
+            <div><a href="/"><img src="/images/branding/rplogoLIGHT.svg" class="logo"></a></div>
+            <% } else { %>
+                <div><a href="/dogs"><img src="/images/branding/rplogoLIGHT.svg" class="logo"></a></div>
+                <% } %>
             <div><a href="/dogs">Dogs</a></div>
             <div><a href="/users">All Dog Walkers</a></div>
             <% if(!currentUser)  { %>
@@ -22,4 +26,4 @@
                     <% } %>
         </nav>
     </header>
-  
+
