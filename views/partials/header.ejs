@@ -9,21 +9,34 @@
 </head>
 <body>
     <header>
-        <nav>
+    <nav>
+        <div class="nav1">
             <% if(!currentUser)  { %>
-            <div><a href="/"><img src="/images/branding/rplogoLIGHT.svg" class="logo"></a></div>
+            <a href="/"><img src="/images/branding/rplogoGREY.svg" class="logo"></a>
             <% } else { %>
-                <div><a href="/dogs"><img src="/images/branding/rplogoLIGHT.svg" class="logo"></a></div>
+            <a href="/dogs"><img src="/images/branding/rplogoGREY.svg" class="logo"></a>
                 <% } %>
-            <div><a href="/dogs">Dogs</a></div>
-            <div><a href="/users">All Dog Walkers</a></div>
+        </div>
+        <div class="nav2">
+ 
+        </div>
+        <div class="nav3">
+            <a href="/dogs">Dogs</a>
+            <p>|</p>
+            <a href="/users">All Volunteers</a>   
+            <p>|</p> 
             <% if(!currentUser)  { %>
-            <div><a href="/login">Login</a></div>
-            <div><a href="/signup">Signup</a></div>
-                <% } else { %>
-            <div><a href="/users/<%= currentUser._id %>"><%= currentUser.fullName %></a></div>
-            <div><a href="/logout">Logout</a></div>
-                    <% } %>
+                <a href="/login">Login</a>
+                <p>|</p>
+                <a href="/signup">Signup</a>
+                        <% } else { %>
+                <a href="/users/<%= currentUser._id %>"><%= currentUser.fullName %></a>
+                <p>|</p>
+                <a href="/logout">Logout</a>
+                            <% } %>
+        </div>
+
+           
         </nav>
     </header>
 

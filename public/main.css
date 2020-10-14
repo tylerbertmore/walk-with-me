@@ -34,17 +34,42 @@ header {
 
 nav {
     height: 100%;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
 }
 
 nav > div {
-    padding: 50px;
+    padding: 0;
 }
+.nav1{
+    margin-left: 2rem;
+}
+
+.nav2{
+    font-size: 20px;
+    
+}
+.nav3{
+    font-size: 14px;
+    color: white;
+    display: flex;
+    margin-right: 2rem;
+    justify-content: space-between;
+}
+
+.nav3 p{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.nav3 a:hover{
+    color: var(--light);
+}
+
 
 main {
     width: 80%;
@@ -65,7 +90,7 @@ main {
     border: var(--dark) 3px solid;
     border-radius: 10px;
     width: 50%;
-    margin-top: 10%;
+    margin-top: 3rem;
     padding-bottom: 3%;
     
 }
@@ -75,11 +100,14 @@ h1 {
     font-size: 50px;
 }
 
-h1 span {
+.form-container h1 span {
     position: absolute;
-    font-size: medium;
+    font-size: small;
     bottom: 0;
     
+}
+.form-container h1 span:hover {
+    color: var(--light);
 }
 input, select {
     width: 300px;
@@ -231,12 +259,14 @@ a:visited {
     margin: 0 auto;
 }
 
+
 .profile-grid, .profile-grid-user {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     background-color: #ddd;
     margin-bottom: 8%;
+   
 }
 .profile-grid-user h3{
     text-align: center;
@@ -365,8 +395,7 @@ h2 {
 .alert{
     position:relative;
     padding:.75rem 1.25rem;
-    margin-bottom:1rem;
-    margin-top:1rem;
+    margin-top:3rem;
     border:1px solid transparent;
     border-radius:.25rem;
 }

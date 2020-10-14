@@ -74,12 +74,17 @@ app.get('/signup', (req, res) => {
 });
     //post
 app.post('/signup', async (req, res) => {
-    const newUser = new db.User({username: req.body.username, fullName: req.body.fullName, gender: req.body.gender, birthday: req.body.birthday})
-    const registeredUser = await db.User.register(newUser, req.body.password)
-    req.login(registeredUser, err => {
-        if(err) return console.log(err)
-        res.redirect(`users/${req.user._id}/dashboard`);
-    })
+    try{
+        const newUser = new db.User({username: req.body.username, fullName: req.body.fullName, gender: req.body.gender, birthday: req.body.birthday})
+        const registeredUser = await db.User.register(newUser, req.body.password)
+        req.login(registeredUser, err => {
+            if(err) return console.log(err);
+            res.redirect(`users/${req.user._id}/dashboard`);
+        })
+    } catch(e){
+        req.flash('error', e.message);
+        res.redirect('signup');
+    }
 })
 
 // Login route
@@ -87,16 +92,19 @@ app.get('/login', (req, res) => {
     res.render('users/login');
 });
 
-app.post('/login', passport.authenticate('local', {failureRedirect: '/login'}), (req, res) => {
+app.post('/login', passport.authenticate('local', {
+    failureFlash: true,
+    failureRedirect: '/login',
+    }), (req, res) => {
     req.flash('success', 'Successfully logged in');
-    res.redirect('/users');
+    res.redirect(`/users/${req.user._id}/dashboard`);
 });
 
 // Logout route
 app.get('/logout', (req, res) => {
     req.logout();
     req.flash('success', 'You have logged out Successfully');
-    res.redirect('dogs')
+    res.redirect('login')
 })
 
 // Users controller
