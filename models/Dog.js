@@ -5,7 +5,11 @@ const dogSchema = new mongoose.Schema({
     breed: String,
     birthDate: Date,
     sex: String,
-    img: String
+    img: String,
+    schedule: {
+        type: Array,
+        default: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,]
+    }
 }, {timestamps: true})
 
 const Dog = mongoose.model('Dog', dogSchema);

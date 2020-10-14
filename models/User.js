@@ -13,8 +13,11 @@ const userSchema = new mongoose.Schema({
     favDog: {        
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Dog'
+    },
+    schedule: {
+        type: Array,
+        default: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,]
     }
-
 }, {timestamps: true})
 
 

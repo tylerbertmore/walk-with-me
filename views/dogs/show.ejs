@@ -1,21 +1,70 @@
 <%- include('../partials/header') %> 
 
-<img src="<%= dog.img %>">
-<h1><%= dog.name %></h1>
-<p><%= dog.sex %> <%= dog.breed %></p>
-<p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
+<section>
+            <div id="hero">
+                <figure><div class="big"></div></figure>
+                <div id="feature">
 
-<% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
-<% let dogBirth = Date.parse(dog.birthDate); %>
-<% let current = Date.parse(new Date()); %>
-<% let time = (current - dogBirth) * year; %>
-<p>Age: <%= Math.floor(time); %></p>
+                    <div>
+                        <div class="bigwindow">
+                            <img src="<%= dog.img %>">
+                        </div>
+                        <figcaption>
+                            <h2> <%= dog.name %> </h2>
+                        </figcaption>
+                    </div>
 
-<form action="/dogs/<%= dog.id %>" method="post">
-    <button>BOOK THIS DOG!</button>
-</form>
+                    <article>
+                        <p>Sex: <%= dog.sex %></p>
+                        <p>Breed: <%= dog.breed %></p>
+                        <p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
 
+                        <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
+                        <% let dogBirth = Date.parse(dog.birthDate); %>
+                        <% let current = Date.parse(new Date()); %>
+                        <% let time = (current - dogBirth) * year; %>
+                        <p>Age: <%= Math.floor(time); %></p>
+                    </article>
 
+                </div>
+            </div>
+</section>
+<div id="week">
+    <div class="guide"></div>
+    <div class="guide">Monday</div>
+    <div class="guide">Tuesday</div>
+    <div class="guide">Wednesday</div>
+    <div class="guide">Thursday</div>
+    <div class="guide">Friday</div>
+    <div class="guide">Saturday</div>
+    <div class="guide">Sunday</div>
+</div>
+<div id="calendar">
+    <div class="guide">9AM</div>
+    <div class="guide">10AM</div>
+    <div class="guide">11AM</div>
+    <div class="guide">12PM</div>
+    <div class="guide">1PM</div>
+    <div class="guide">2PM</div>
+    <div class="guide">3PM</div>
+    <div class="guide">4PM</div>
+
+    <% dog.schedule.forEach((item, index) => { %>
+        <% if (item) { %>
+            <div class="booked" id="spot<%= index %>">
+                <figure><div class="small"></div></figure>
+                <div>BOOKED</div>
+            </div>
+        <% } else { %>
+            <form action="/dogs/<%= dog._id %>/<%= index %>?_method=PUT" method="post">
+                <button type="submit" class="open">
+                    <figure><div class="small"></div></figure>
+                    <div>OPEN</div>
+                </button>
+            </form>
+        <% } %>
+   <% }) %>
+</div>
 
 
 <%- include('../partials/footer') %> 
