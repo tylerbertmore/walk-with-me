@@ -25,6 +25,7 @@ function isCurrentUser(req, res, next) {
         if(req.user._id.equals(foundUser._id)){
             next()
         } else {
+            req.flash('error', 'You can only edit/delete your own profile');
             res.redirect(`/users/${req.user._id}`)
         }
     })

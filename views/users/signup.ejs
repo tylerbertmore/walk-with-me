@@ -1,4 +1,7 @@
 <%- include('../partials/header') %> 
+<div class="flash-container">
+    <%- include('../partials/flash') %> 
+    </div>
 <main>
 <div class="form-container">
     <h1>Signup<span><a href="/login">Login?</a></span></h1>
@@ -6,19 +9,19 @@
         <!-- USERNAME -->
         <div>
             <label for="username" >
-                <input type="text" name="username" placeholder="Username">
+                <input type="text" name="username" placeholder="Username" required>
             </label>
         </div>
          <!-- PASSWORD -->
         <div>
             <label for="password" >
-                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password"  required>
             </label>
         </div>
         <!-- FULL NAME -->
         <div>
             <label for="fullName" >
-                <input type="text" name="fullName" placeholder="Full Name">
+                <input type="text" name="fullName" placeholder="Full Name" required>
             </label>
         </div>
         <!-- GENDER-->
@@ -30,7 +33,7 @@
         <!-- BIRTHDATE -->
         <div>
             <label for="birthday" >
-                <input type="date" name="birthday" placeholder="Birthday">
+                <input type="date" name="birthday" placeholder="Birthday" required>
             </label>
         </div>
         <input class="submit" type="submit" value="Sign Up">
