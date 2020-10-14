@@ -10,6 +10,14 @@
     margin: 0;
 }
 
+button {
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    padding: inherit;
+    font: inherit;
+}
+
 body {
     color: var(--dark);
     text-decoration: none;
@@ -42,6 +50,9 @@ main {
     width: 80%;
     margin: 0 auto;
     min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* FORM STYLES */
@@ -164,11 +175,11 @@ figure {
     justify-content: flex-end;
 }
 
-figure > div {
+.big {
     width: 0;
     height: 0;
-    border-top: 30px solid white;
-    border-left: 30px solid transparent;
+    border-top: 50px solid white;
+    border-left: 50px solid transparent;
 }
 
 .smallwindow {
@@ -325,11 +336,37 @@ h2 {
 .open {
     width: 100px;
     height: 50px;
-    background-color: var(--light);
+    background-image: linear-gradient(135deg, var(--light), var(--grey));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .booked {
     width: 100px;
     height: 50px;
     background-color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.small {
+    width: 0;
+    height: 0;
+    border-top: 20px solid white;
+    border-left: 20px solid transparent;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.guide {
+    width: 100px;
+    height: 50px;
+    background-color: var(--grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

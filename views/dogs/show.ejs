@@ -2,7 +2,7 @@
 
 <section>
             <div id="hero">
-                <figure><div></div></figure>
+                <figure><div class="big"></div></figure>
                 <div id="feature">
 
                     <div>
@@ -24,51 +24,47 @@
                         <% let current = Date.parse(new Date()); %>
                         <% let time = (current - dogBirth) * year; %>
                         <p>Age: <%= Math.floor(time); %></p>
-
-                        <form action="/dogs/<%= dog.id %>" method="post">
-                            <button>BOOK THIS DOG!</button>
-                        </form>
                     </article>
 
                 </div>
             </div>
 </section>
 <div id="week">
-    <div class="booked"></div>
-    <div class="booked">Monday</div>
-    <div class="booked">Tuesday</div>
-    <div class="booked">Wednesday</div>
-    <div class="booked">Thursday</div>
-    <div class="booked">Friday</div>
-    <div class="booked">Saturday</div>
-    <div class="booked">Sunday</div>
+    <div class="guide"></div>
+    <div class="guide">Monday</div>
+    <div class="guide">Tuesday</div>
+    <div class="guide">Wednesday</div>
+    <div class="guide">Thursday</div>
+    <div class="guide">Friday</div>
+    <div class="guide">Saturday</div>
+    <div class="guide">Sunday</div>
 </div>
 <div id="calendar">
-    <div class="booked">9AM</div>
-    <div class="booked">10AM</div>
-    <div class="booked">11AM</div>
-    <div class="booked">12PM</div>
-    <div class="booked">1PM</div>
-    <div class="booked">2PM</div>
-    <div class="booked">3PM</div>
-    <div class="booked">4PM</div>
+    <div class="guide">9AM</div>
+    <div class="guide">10AM</div>
+    <div class="guide">11AM</div>
+    <div class="guide">12PM</div>
+    <div class="guide">1PM</div>
+    <div class="guide">2PM</div>
+    <div class="guide">3PM</div>
+    <div class="guide">4PM</div>
 
     <% dog.schedule.forEach((item, index) => { %>
         <% if (item) { %>
             <div class="booked" id="spot<%= index %>">
-                Booked <%= index + 1 %>
+                <figure><div class="small"></div></figure>
+                <div>BOOKED</div>
             </div>
         <% } else { %>
             <form action="/dogs/<%= dog._id %>/<%= index %>?_method=PUT" method="post">
                 <button type="submit" class="open">
-                    Available <%= index + 1 %>
+                    <figure><div class="small"></div></figure>
+                    <div>OPEN</div>
                 </button>
             </form>
         <% } %>
    <% }) %>
 </div>
-
-
 
 
 <%- include('../partials/footer') %> 
