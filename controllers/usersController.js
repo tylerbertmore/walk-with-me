@@ -13,8 +13,15 @@ function isLoggedIn(req, res, next){
     res.redirect('/login');
 }
 
-function isCurrentUser(req, res, next){
-
+function isCurrentUser(req, res, next) {
+    db.User.findById(req.params.user, (err, foundUser) => {
+        if(err) return console.log(err);
+        if(req.user._id.equals(foundUser._id)){
+            next()
+        } else {
+            res.redirect(`/users/${req.user._id}`)
+        }
+    })
 }
 
 // all routes assume '/users'
@@ -55,10 +62,10 @@ router.get('/:user/dashboard', isLoggedIn, (req,res) => {
 })
 
 // render page to edit or delete account
-router.get('/:user/edit', isLoggedIn, (req, res) => {
+router.get('/:user/edit', isLoggedIn, isCurrentUser, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         if(err) return console.log(err);
-        if(req.user._id.equals(foundUser._id)){
+        
             db.Dog.find({}, (err, allDogs) => {
                 err ? console.log(err) : res.render('users/edit', {
                     user: foundUser,
@@ -66,14 +73,13 @@ router.get('/:user/edit', isLoggedIn, (req, res) => {
                 })
     
             })
-        } else {
-            res.redirect(`/users/${req.user._id}`)
-        }
+
     })
 })
 
 // update account info in database
-router.put('/:user', isLoggedIn, (req, res) => {
+router.put('/:user', isLoggedIn, isCurrentUser, (req, res) => {
+    
     db.User.findByIdAndUpdate(req.params.user,
         req.body,
         {new: true},
@@ -83,7 +89,7 @@ router.put('/:user', isLoggedIn, (req, res) => {
 })
 
 // delete account from database
-router.delete('/:user', isLoggedIn, (req, res) => {
+router.delete('/:user', isLoggedIn, isCurrentUser, (req, res) => {
     db.User.findByIdAndDelete(req.params.user, (err, deleted) => {
         err ? console.log(err) : res.redirect('../')
     })
