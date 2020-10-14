@@ -224,8 +224,14 @@ a:visited {
 
 
 /* USER INDEX  */
+.user-container{
+    width: 80%;
+    margin: 0 auto;
+}
+
 .profile-grid, .profile-grid-user {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     background-color: #ddd;
     margin-bottom: 8%;
@@ -333,6 +339,8 @@ h2 {
 
 .hero-walker {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-bottom: 3%;
     background-color: #ddd;
     padding: 3%;

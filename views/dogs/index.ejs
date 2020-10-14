@@ -1,4 +1,5 @@
 <%- include('../partials/header') %> 
+<main>
 <h1>CHOOSE YOUR WEAPON:</h1>
 <% let random = Math.floor(Math.random() * allDogs.length); %>
 <% let dog = allDogs[random]; %>
@@ -49,5 +50,5 @@
     </div>
 </section>
 
-
+</main>
 <%- include('../partials/footer') %> 
