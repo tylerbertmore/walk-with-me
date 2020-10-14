@@ -301,3 +301,35 @@ h2 {
     height: 300px;
     width: 300px;
 }
+
+/* calendar styling */
+#calendar {
+    width: 80vh;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+#week {
+    width: 80vh;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.open {
+    width: 100px;
+    height: 50px;
+    background-color: var(--light);
+}
+
+.booked {
+    width: 100px;
+    height: 50px;
+    background-color: var(--grey);
+}

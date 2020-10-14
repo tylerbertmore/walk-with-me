@@ -33,7 +33,40 @@
                 </div>
             </div>
 </section>
+<div id="week">
+    <div class="booked"></div>
+    <div class="booked">Monday</div>
+    <div class="booked">Tuesday</div>
+    <div class="booked">Wednesday</div>
+    <div class="booked">Thursday</div>
+    <div class="booked">Friday</div>
+    <div class="booked">Saturday</div>
+    <div class="booked">Sunday</div>
+</div>
+<div id="calendar">
+    <div class="booked">9AM</div>
+    <div class="booked">10AM</div>
+    <div class="booked">11AM</div>
+    <div class="booked">12PM</div>
+    <div class="booked">1PM</div>
+    <div class="booked">2PM</div>
+    <div class="booked">3PM</div>
+    <div class="booked">4PM</div>
 
+    <% dog.schedule.forEach((item, index) => { %>
+        <% if (item) { %>
+            <div class="booked" id="spot<%= index %>">
+                Booked <%= index + 1 %>
+            </div>
+        <% } else { %>
+            <form action="/dogs/<%= dog._id %>/<%= index %>?_method=PUT" method="post">
+                <button type="submit" class="open">
+                    Available <%= index + 1 %>
+                </button>
+            </form>
+        <% } %>
+   <% }) %>
+</div>
 
 
 

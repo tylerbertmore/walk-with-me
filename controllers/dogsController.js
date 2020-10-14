@@ -47,5 +47,21 @@ router.post('/:dogId', isLoggedIn, (req, res) => {
     })
 })
 
+router.put('/:dogId/:index', (req, res) => {
+    let idx = req.params.index
+    db.Dog.findByIdAndUpdate(req.params.dogId, 
+        {$set: {[`schedule.${idx}`]:`${req.user.id}`}},
+        {new: true},
+        (err, foundDog) => {
+        if (err) return console.log(err);
+        db.User.findByIdAndUpdate(req.user.id, 
+            {$set: {[`schedule.${idx}`]:`${req.params.dogId}`}},
+            {new: true},
+            (err, foundUser) => {
+            err ? console.log(err) : res.redirect('back');            
+        })
+        
+    })
+})
 
 module.exports = router

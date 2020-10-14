@@ -14,8 +14,11 @@ const userSchema = new mongoose.Schema({
     gender: String,
     userImg: String,
     birthday: Date,
-    email: String
-
+    email: String,
+    schedule: {
+        type: Array,
+        default: [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}]
+    }
 }, {timestamps: true})
 
 
