@@ -13,6 +13,10 @@ function isLoggedIn(req, res, next){
     res.redirect('/login');
 }
 
+function isCurrentUser(req, res, next){
+
+}
+
 // all routes assume '/users'
 router.get('/', isLoggedIn, (req, res) => {
     db.User.find({}, (err, allUsers) => {
@@ -54,13 +58,17 @@ router.get('/:user/dashboard', isLoggedIn, (req,res) => {
 router.get('/:user/edit', isLoggedIn, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         if(err) return console.log(err);
-        db.Dog.find({}, (err, allDogs) => {
-            err ? console.log(err) : res.render('users/edit', {
-                user: foundUser,
-                allDogs: allDogs,
+        if(req.user._id.equals(foundUser._id)){
+            db.Dog.find({}, (err, allDogs) => {
+                err ? console.log(err) : res.render('users/edit', {
+                    user: foundUser,
+                    allDogs: allDogs,
+                })
+    
             })
-
-        })
+        } else {
+            res.redirect(`/users/${req.user._id}`)
+        }
     })
 })
 

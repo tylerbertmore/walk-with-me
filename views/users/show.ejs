@@ -4,7 +4,9 @@
 <section class="hero-walker">
         <div class="profile-card">
             <img class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
+            <% if(user._id.equals(currentUser._id)) {  %>
             <a href="/users/<%= user._id %>/edit"><button class="delete-edit-btn">Delete/Edit Account</button></a>   
+                <% } %>
         </div>
         <div class="featured-side">
             <div>
@@ -40,8 +42,9 @@
             </div>
         </a>
     </section>
+    <% if(user.favDog) { %>
             <section>
-                    
+                   
                     <a href="/dogs/<%= user.favDog._id %>">
                         <h3>Favorite Dog</h3>
                         <div class="tile">
@@ -55,7 +58,9 @@
                             </figcaption>
                         </div>
                     </a>
+
             </section>
+            <% } %>
         </div>
 
 <%- include('../partials/footer') %> 
