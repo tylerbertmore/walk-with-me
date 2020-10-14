@@ -5,7 +5,7 @@
 <% let dog = allDogs[random]; %>
 <section>
     <div id="hero">
-        <figure><div></div></figure>
+        <figure><div class="big"></div></figure>
         <div id="feature">
 
             <div>
@@ -37,7 +37,7 @@
         <% allDogs.forEach(item => { %>
             <a href="/dogs/<%= item.id %>">
                 <div class="tile">
-                    <figure class="big"><div></div></figure>
+                    <figure><div class="medium"></div></figure>
                     <div class="smallwindow">
                         <img src="<%= item.img %>">
                     </div>

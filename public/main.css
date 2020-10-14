@@ -149,8 +149,10 @@ article {
 
 #tiles {
     display: flex;
-    justify-items: space-around;
+    justify-content: space-around;
     flex-wrap: wrap;
+    align-content: center;
+
 }
 
 .tile {
@@ -173,13 +175,6 @@ figure {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-}
-
-.big {
-    width: 0;
-    height: 0;
-    border-top: 50px solid white;
-    border-left: 50px solid transparent;
 }
 
 .smallwindow {
@@ -393,6 +388,21 @@ h2 {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+}
+
+/* styling for tile notches */
+.big {
+    width: 0;
+    height: 0;
+    border-top: 50px solid white;
+    border-left: 50px solid transparent;
+}
+
+.medium {
+    width: 0;
+    height: 0;
+    border-top: 30px solid white;
+    border-left: 30px solid transparent;
 }
 
 .small {
