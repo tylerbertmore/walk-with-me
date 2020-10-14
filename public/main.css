@@ -355,6 +355,21 @@ h2 {
     width: 300px;
 }
 
+/* 404 */
+.error-page{
+    width: 75%;
+    height: 250px;
+    padding: 50px;
+    background-color: #ddd;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border: var(--dark) 5px solid;
+}
+
+
 /* calendar styling */
 #calendar {
     width: 80vh;
