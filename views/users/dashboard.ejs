@@ -1,6 +1,35 @@
 <%- include('../partials/header') %> 
-
+<!-- <%- include('../../models/helpers.js') %> -->
+<main>
 <h1>THIS IS YOUR IMPORTANT INFO AND YOUR SCHEDULE</h1>
-<%= user.id %>
 
+
+
+<section>
+    <div id="tiles">
+        <% dogs.forEach(dog => { %>
+            <% let sched = dog.schedule.map((item, index) => [item, index % 8,Math.floor(index / 8)]).filter(item => !!item[0]); %>
+            <% dog.display = sched %>
+            <% dog.display.forEach(meeting => { %>
+                <a href="/dogs/<%= dog.id %>"></a>
+                <div class="tile">
+                    <figure><div class="medium"></div></figure>
+                    <div class="smallwindow">
+                        <img src="<%= dog.img %>">
+                    </div>
+                    <figcaption>
+                        <p>You're walking <%= dog.name %></p>
+                        <% helpers.format(meeting) %>
+                        <p><%= meeting[2] %> at <%= meeting[1] %></p>
+                    </figcaption>
+                </div>
+                </a>
+            <% }) %>
+        <% }) %>
+</div>
+</section>
+</main>
 <%- include('../partials/footer') %> 
+
+
+                

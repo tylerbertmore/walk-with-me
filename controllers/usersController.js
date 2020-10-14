@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
+//-------------------------------------- Helper Functions
+
+const helpers = require('../models/helpers.js')
+
+
+
 
 
 //-------------------------------------------- ROUTES
@@ -50,13 +56,12 @@ router.get('/:user/', isLoggedIn, (req, res) => {
 
 // render dashboard upon logging in
 router.get('/:user/dashboard', isLoggedIn, (req,res) => {
-    db.User.findById(req.params.user, (err, foundUser) => {
+    db.Dog.find({schedule: {$in: `${req.params.user}`}}, (err, foundDogs) => {
         if (err) return console.log(err);
-        db.Appointment.find({'walker:id': req.params.user}, (err, appointments) => {
-            err ? console.log(err) : res.render('users/dashboard', {
-                user: foundUser,
-                appointments, appointments
-            })
+        res.render('users/dashboard', {
+            dogs: foundDogs,
+            userId: req.params.user,
+            helpers: helpers
         })
     })
 })
