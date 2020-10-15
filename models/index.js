@@ -18,5 +18,4 @@ mongoose.connection.on('error', (error) => {
 module.exports = {
     Dog: require('./Dog'),
     User: require('./User'),
-    Appointment: require('./Appointment')
 }

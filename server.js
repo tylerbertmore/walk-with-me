@@ -116,8 +116,7 @@ app.get('/logout', (req, res) => {
 app.use('/users', ctrl.users);
 // Dogs controller
 app.use('/dogs', ctrl.dogs);
-//Appointments controller
-app.use('/appointments', ctrl.appointments);
+
 
 
 //404

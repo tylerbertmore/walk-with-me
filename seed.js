@@ -1,6 +1,5 @@
-// require models to here instead of this data to controller?
-
-
+require('dotenv').config();
+const db = require('./models');
 const dogs = [
     {
         name: 'Rex',
@@ -151,4 +150,28 @@ const dogs = [
     }
 ]
 
-module.exports = dogs;
+// Delete All Authors
+db.Dog.deleteMany((err, result) => {
+    if (err) {
+      console.log(err);
+      process.exit();
+    }
+  
+    console.log(result);
+  
+    // Create Authors
+    db.Dog.create(dogs, (err, newDogs) => {
+      if (err) {
+        console.log(err);
+      }
+  
+      console.log(newDogs);
+  
+      process.exit();
+  
+  
+      // Create Articles
+      
+    });
+  });
+  

@@ -2,12 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-//--------------------------------- SEED DOGS
-const firstDogs = require('../models/dogs.js');
-
-// db.Dog.insertMany(firstDogs, (err, newDogs) => {
-//     err ? console.log(err) : null //console.log(newDogs);
-// })
 
 //-------------------------------------------- ROUTES
 
