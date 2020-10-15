@@ -53,7 +53,7 @@ router.put('/:dogId/:index', (req, res) => {
             {$set: {[`schedule.${idx}`]:`${req.params.dogId}`}},
             {new: true},
             (err, foundUser) => {
-            err ? console.log(err) : res.redirect('back');            
+            err ? console.log(err) :  req.flash('success', 'Dog Booked'); res.redirect('back');            
         })
         
     })
