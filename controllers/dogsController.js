@@ -15,6 +15,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash('error', 'You must sign in first');
     res.redirect('/login');
 }
 
@@ -26,7 +27,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:dogId', (req, res) => {
+router.get('/:dogId', isLoggedIn, (req, res) => {
     db.Dog.findById(req.params.dogId, (err, foundDog) => {
         err ? console.log(err) : res.render('dogs/show', {dog: foundDog})
     })

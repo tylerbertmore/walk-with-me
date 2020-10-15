@@ -480,13 +480,13 @@ h2 {
 .jumbo-logo{
     max-height: 130px;
 }
-.landing-btns{
+.landing-btns, .centered-landing{
     margin-top: 30px;
     display: flex;
     width: 90%;
     justify-content: space-between;
 }
-.landing-btns button{
+.landing-btns button, .centered-landing button{
     width: 32%;
     padding: 10px;
     border: var(--dark) 3px solid;
@@ -498,6 +498,9 @@ h2 {
     background-color: #ddd;
     color: black;
     
+}
+.centered-landing{
+    justify-content: center;
 }
 .powered-by{
     color: white;

@@ -16,6 +16,7 @@ function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash('error', 'You must sign in first');
     res.redirect('/login');
 }
 
@@ -102,7 +103,7 @@ router.put('/:user', isLoggedIn, isCurrentUser, (req, res) => {
 router.delete('/:user', isLoggedIn, isCurrentUser, (req, res) => {
     db.User.findByIdAndDelete(req.params.user, (err, deleted) => {
         if(err) return console.log(err);
-        req.flash('success', 'Account successfully deleted, feel free to create a new one');
+        req.flash('error', 'Account successfully deleted, feel free to create a new one');
         res.redirect('/login');
     })
 })

@@ -25,11 +25,19 @@
                 <h4>Volunteer Dog Walking redefined</h4>
 
             </div>
+            <% if(!currentUser)  { %>
             <div class="landing-btns">
                 <button><a href="/login">Login</a></button>
                 <button><a href="/signup">Signup</a></button>
                 <button><a href="/dogs">View Dogs</a></button>
+                
+               
             </div>
+            <% } else { %>
+                <div class="centered-landing">
+                    <button><a href="/dogs">View Dogs</a></button>
+                </div>
+                <% } %>
             
         </div>
     </div>
