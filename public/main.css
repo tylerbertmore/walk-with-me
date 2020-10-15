@@ -380,6 +380,7 @@ h2 {
 }
 .featured-walker-top{
     margin-top: 8%;
+    border: steelblue 5px solid;
 }
 
 .hero-walker img {

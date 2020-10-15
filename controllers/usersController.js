@@ -90,14 +90,18 @@ router.put('/:user', isLoggedIn, isCurrentUser, (req, res) => {
         req.body,
         {new: true},
         (err, updated) => {
-            err ? console.log(err) : res.redirect(`${updated._id}`)
+            if(err) return console.log(err);
+            req.flash('success', 'Your account was updated successfully');
+            res.redirect(`${updated._id}`)
     })
 })
 
 // delete account from database
 router.delete('/:user', isLoggedIn, isCurrentUser, (req, res) => {
     db.User.findByIdAndDelete(req.params.user, (err, deleted) => {
-        err ? console.log(err) : res.redirect('../')
+        if(err) return console.log(err);
+        req.flash('success', 'Account successfully deleted, feel free to create a new one');
+        res.redirect('/login');
     })
 })
 
