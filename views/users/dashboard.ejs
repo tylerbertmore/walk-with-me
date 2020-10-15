@@ -7,26 +7,29 @@
 
 <section>
     <div id="tiles">
+        <% console.log('dogs', dogs); %>
+        <% let fullSched = [] %>
         <% dogs.forEach(dog => { %>
-            <% let sched = dog.schedule.map((item, index) => [item, index % 8,Math.floor(index / 8)]).filter(item => !!item[0]); %>
-            <% dog.display = sched %>
-            <% dog.display.forEach(meeting => { %>
-                <a href="/dogs/<%= dog.id %>">
-                <div class="tile">
-                    <figure><div class="medium"></div></figure>
-                    <div class="smallwindow">
-                        <img src="<%= dog.img %>">
-                    </div>
-                    <figcaption>
-                        <p>You're walking <%= dog.name %></p>
-                        <% helpers.format(meeting) %>
-                        <p><%= meeting[2] %> at <%= meeting[1] %></p>
-                    </figcaption>
+            <% dog.sched = dog.schedule.map((item, index) => [item,Math.floor(index / 8), index % 8, dog.img, dog.name, dog.id]).filter(item => !!item[0]); %>
+        <% }); %>
+        <% dogs.forEach(dog => fullSched.push(dog.sched)); %>
+        <% let sorted = fullSched.flat(1).sort((x, y) => x[1] - y[1] || x[2] - y[2]); %>
+        <% sorted.forEach(meeting => { %>
+            <a href="/dogs/<%= meeting[5] %>">
+            <div class="tile">
+                <figure><div class="medium"></div></figure>
+                <div class="smallwindow">
+                    <img src="<%= meeting[3] %>">
                 </div>
-                </a>
-            <% }) %>
+                <figcaption>
+                    <p>You're walking <%= meeting[4] %></p>
+                    <% helpers.format(meeting) %>
+                    <p><%= meeting[1] %> at <%= meeting[2] %></p>
+                </figcaption>
+            </div>
+            </a>
         <% }) %>
-</div>
+    </div>
 </section>
 </main>
 <%- include('../partials/footer') %> 
