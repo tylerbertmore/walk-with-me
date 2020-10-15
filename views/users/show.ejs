@@ -17,10 +17,9 @@
             </div>
             <div>
                 <p>Member Since:<%= user.createdAt.toISOString().replace('T', ' ').substr(0, 11); %></p>
-                <p>Dogs walked: 0</p>
                 <p>Gender: <%= user.gender %></p>
                 <p>Birthday: <%= user.birthday.toISOString().replace('T', ' ').substr(0, 11); %></p>
-                <p>Favorite Dog: N/A</p>
+                <p>Favorite Dog: <%= user.favDog %></p>
             </div>
 
         </div>

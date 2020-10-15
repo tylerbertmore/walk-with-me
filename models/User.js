@@ -11,7 +11,10 @@ const userSchema = new mongoose.Schema({
     },
     birthday: Date,
     email: String,
-    favDog: String,
+    favDog: {
+        type: String,
+        default: 'None',
+    },
     schedule: {
         type: Array,
         default: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,]

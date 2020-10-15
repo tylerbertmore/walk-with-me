@@ -85,7 +85,9 @@ router.get('/:user/edit', isLoggedIn, isCurrentUser, (req, res) => {
 
 // update account info in database
 router.put('/:user', isLoggedIn, isCurrentUser, (req, res) => {
-    
+    if(req.body.userImg === ''){
+        req.body.userImg = '/images/default-user.png'
+    };
     db.User.findByIdAndUpdate(req.params.user,
         req.body,
         {new: true},
