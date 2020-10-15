@@ -1,3 +1,6 @@
+// require models to here instead of this data to controller?
+
+
 const dogs = [
     {
         name: 'Rex',

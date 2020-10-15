@@ -1,8 +1,20 @@
 <%- include('../partials/header') %> 
 <!-- <%- include('../../models/helpers.js') %> -->
 <main>
-<h1>THIS IS YOUR IMPORTANT INFO AND YOUR SCHEDULE</h1>
-
+<section>
+    <div id="hero">
+        <figure><div class="big"></div></figure>
+        <div id="feature">
+            <% if(!!dogs) { %>
+             <h2>Here are your upcoming Appointments</h2>
+             <% } else { %>
+                <h2>You can view your upcoming appointments here</h2>
+            <% } %>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            
+        </div>
+    </div>
+</section>
 
 
 <section>
