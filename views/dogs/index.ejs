@@ -4,7 +4,7 @@
 </div>
 <main>
     
-<h1>CHOOSE YOUR WEAPON:</h1>
+<h1>Select A Dog to Plan your Walk!</h1>
 <% let random = Math.floor(Math.random() * allDogs.length); %>
 <% let dog = allDogs[random]; %>
 <section>
@@ -22,6 +22,8 @@
             </div>
 
             <article>
+                <h4>Dog of the Day:</h4>
+                <p>Name: <%= dog.name %></p>
                 <p>Sex: <%= dog.sex %></p>
                 <p>Breed: <%= dog.breed %></p>
                 <p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>

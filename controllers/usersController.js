@@ -63,7 +63,8 @@ router.get('/:user/dashboard', isLoggedIn, (req,res) => {
         res.render('users/dashboard', {
             dogs: foundDogs,
             userId: req.params.user,
-            helpers: helpers
+            helpers: helpers,
+            user: req.user
         })
     })
 })
