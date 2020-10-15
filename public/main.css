@@ -18,6 +18,10 @@ button {
     font: inherit;
 }
 
+button:active {
+    border: none;
+}
+
 body {
     color: var(--dark);
     text-decoration: none;
@@ -181,7 +185,7 @@ article {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
 
 }
 

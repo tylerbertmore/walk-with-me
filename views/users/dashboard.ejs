@@ -11,7 +11,7 @@
             <% let sched = dog.schedule.map((item, index) => [item, index % 8,Math.floor(index / 8)]).filter(item => !!item[0]); %>
             <% dog.display = sched %>
             <% dog.display.forEach(meeting => { %>
-                <a href="/dogs/<%= dog.id %>"></a>
+                <a href="/dogs/<%= dog.id %>">
                 <div class="tile">
                     <figure><div class="medium"></div></figure>
                     <div class="smallwindow">
