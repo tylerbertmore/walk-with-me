@@ -7,14 +7,20 @@
 <section>
     <div id="hero">
         <figure><div class="big"></div></figure>
-        <div id="feature">
-            <% if(!!dogs) { %>
-             <h2>Here are your upcoming Appointments</h2>
-             <% } else { %>
-                <h2>You can view your upcoming appointments here</h2>
-            <% } %>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            
+        <div>
+            <h1>Hello <%= user.fullName %>!</h1>
+        </div>
+        <div id="instructions">
+            <div>
+                <% if(!dogs.every(item => null)) { %>
+                <h2>Here are your upcoming appointments</h2>
+                <% } else { %>
+                    <h2>View your upcoming appointments here</h2>
+                <% } %>
+            </div>
+            <div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -22,7 +28,6 @@
 
 <section>
     <div id="tiles">
-        <% console.log('dogs', dogs); %>
         <% let fullSched = [] %>
         <% dogs.forEach(dog => { %>
             <% dog.sched = dog.schedule.map((item, index) => [item,Math.floor(index / 8), index % 8, dog.img, dog.name, dog.id]).filter(item => !!item[0]); %>
