@@ -17,8 +17,12 @@
             </div>
             <div>
                 <p>Member Since:<%= user.createdAt.toISOString().replace('T', ' ').substr(0, 11); %></p>
-                <p>Gender: <%= user.gender %></p>
-                <p>Birthday: <%= user.birthday.toISOString().replace('T', ' ').substr(0, 11); %></p>
+                <p>Gender: <%= user.gender %></p>  
+                <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
+                <% let birthYear = Date.parse(user.birthday); %>
+                <% let current = Date.parse(new Date()); %>
+                <% let time = (current - birthYear) * year; %>
+                <p>Age: <%= Math.floor(time); %></p>
                 <p>Favorite Dog: <%= user.favDog %></p>
             </div>
 

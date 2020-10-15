@@ -6,9 +6,8 @@
 <h2 class="featured-walker-top">Edit Your Profile</h2>
 <section class="hero-walker edit-side">
         <div class="profile-card">
-            <a href="./users/<%= user.id %>">
+
             <img class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
-        </a>
         <form action="/users/<%= user._id %>?_method=DELETE" method="post">
             <input class="btn-danger" type="submit" value="Delete Account">
         </form>
@@ -32,7 +31,7 @@
                     <!-- BIRTHDATE -->
                     <div>
                         <label for="birthday" >
-                            Birthday: <input type="date" name="birthday" value="<%= user.birthday.toISOString().substr(0, 10); %>">
+                            Birthday: <input type="date" name="birthday" min="1903-01-02" max="2004-01-01" value="<%= user.birthday.toISOString().substr(0, 10); %>" disabled>
                         </label>
                     </div>
                     Email:

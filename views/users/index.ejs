@@ -18,6 +18,11 @@
             <div>
                 <p>Member Since:<%= allUsers[rand].createdAt.toISOString().replace('T', ' ').substr(0, 11); %></p>
                 <p>Favorite Dog:<%= allUsers[rand].favDog %></p>
+                <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
+                <% let birthYear = Date.parse(allUsers[rand].birthday); %>
+                <% let current = Date.parse(new Date()); %>
+                <% let time = (current - birthYear) * year; %>
+                <p>Age: <%= Math.floor(time); %></p>
             </div>
 
         </div>
