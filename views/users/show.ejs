@@ -17,55 +17,14 @@
             </div>
             <div>
                 <p>Member Since:<%= user.createdAt.toISOString().replace('T', ' ').substr(0, 11); %></p>
-                <p>Dogs walked: 0</p>
                 <p>Gender: <%= user.gender %></p>
                 <p>Birthday: <%= user.birthday.toISOString().replace('T', ' ').substr(0, 11); %></p>
-                <p>Favorite Dog: N/A</p>
+                <p>Favorite Dog: <%= user.favDog %></p>
             </div>
 
         </div>
 
 </section>
-
-<h3 class="all-walkers">Fun Facts</h3>
-    <!-- <div class="profile-grid-user">
-    <section>
-        
-        <a href="/dogs/<%= allDogs[3].id %>">
-            <h3>Most Walked Dog</h3>
-            <div class="tile">
-                
-                <figure><div></div></figure>
-                <div class="window">
-                    <img src="<%= allDogs[3].img %>">
-                </div>
-                <figcaption>
-                    <h2> <%= allDogs[3].name %> </h2>
-                </figcaption>
-            </div>
-        </a>
-    </section>
-    <% if(user.favDog) { %>
-            <section>
-                   
-                    <a href="/dogs/<%= user.favDog._id %>">
-                        <h3>Favorite Dog</h3>
-                        <div class="tile">
-                            
-                            <figure><div></div></figure>
-                            <div class="window">
-                                <img src="<%= user.favDog.img %>">
-                            </div>
-                            <figcaption>
-                                <h2> <%= user.favDog.name %> </h2>
-                            </figcaption>
-                        </div>
-                    </a>
-
-            </section>
-            <% } %>
-        </div> -->
-
     </div>
 
 <%- include('../partials/footer') %> 

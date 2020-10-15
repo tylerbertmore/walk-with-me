@@ -11,11 +11,8 @@
     <header>
     <nav>
         <div class="nav1">
-            <% if(!currentUser)  { %>
             <a href="/"><img src="/images/branding/rplogoGREY.svg" class="logo"></a>
-            <% } else { %>
-            <a href="/dogs"><img src="/images/branding/rplogoGREY.svg" class="logo"></a>
-                <% } %>
+
         </div>
         <div class="nav2">
  
@@ -30,6 +27,8 @@
                 <p>|</p>
                 <a href="/signup">Signup</a>
                         <% } else { %>
+                            <a href="/users/<%= currentUser._id %>/dashboard">Your Dashboard</a>
+                <p>|</p>
                 <a href="/users/<%= currentUser._id %>"><%= currentUser.fullName %></a>
                 <p>|</p>
                 <a href="/logout">Logout</a>

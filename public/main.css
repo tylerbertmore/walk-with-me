@@ -380,6 +380,7 @@ h2 {
 }
 .featured-walker-top{
     margin-top: 8%;
+    border: steelblue 5px solid;
 }
 
 .hero-walker img {
@@ -448,7 +449,7 @@ h2 {
 .awards-container {
     position: absolute;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     top: 5%;
     left: 20%;
@@ -457,17 +458,10 @@ h2 {
     width: 70%;
 }
 .awards-container img{
-    height: 150px;
-    width: 150px;
-}
-.awards-container .peta{
-    width: 200px;
     height: 100px;
+    width: 125px;
 }
-.awards-container .rolling{
-    width: 200px;
-    height: 50px;
-}
+
 .jumbotron{
     position: absolute;
     display: flex;
@@ -486,13 +480,13 @@ h2 {
 .jumbo-logo{
     max-height: 130px;
 }
-.landing-btns{
+.landing-btns, .centered-landing{
     margin-top: 30px;
     display: flex;
     width: 90%;
     justify-content: space-between;
 }
-.landing-btns button{
+.landing-btns button, .centered-landing button{
     width: 32%;
     padding: 10px;
     border: var(--dark) 3px solid;
@@ -504,6 +498,9 @@ h2 {
     background-color: #ddd;
     color: black;
     
+}
+.centered-landing{
+    justify-content: center;
 }
 .powered-by{
     color: white;
