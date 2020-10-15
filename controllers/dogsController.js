@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:dogId', isLoggedIn, (req, res) => {
+router.get('/:dogId', (req, res) => {
     db.Dog.findById(req.params.dogId, (err, foundDog) => {
         err ? console.log(err) : res.render('dogs/show', {dog: foundDog})
     })
