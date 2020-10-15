@@ -7,7 +7,7 @@
 <section class="hero-walker edit-side">
         <div class="profile-card">
 
-            <img class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
+            <img onError="this.onerror=null;this.src='/images/default-user.png';" class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
         <form action="/users/<%= user._id %>?_method=DELETE" method="post">
             <input class="btn-danger" type="submit" value="Delete Account">
         </form>

@@ -6,7 +6,7 @@
 <h2 class="featured-walker-top">Your Profile</h2>
 <section class="hero-walker">
         <div class="profile-card">
-            <img class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
+            <img onError="this.onerror=null;this.src='/images/default-user.png';" class="profile-pic-index" src="<%= user.userImg %>" alt="Profile Pic">
             <% if(user._id.equals(currentUser._id)) {  %>
             <a href="/users/<%= user._id %>/edit"><button class="delete-edit-btn">Delete/Edit Account</button></a>   
                 <% } %>
