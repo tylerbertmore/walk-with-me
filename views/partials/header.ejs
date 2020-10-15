@@ -30,6 +30,8 @@
                 <p>|</p>
                 <a href="/signup">Signup</a>
                         <% } else { %>
+                            <a href="/users/<%= currentUser._id %>/dashboard">Your Dashboard</a>
+                <p>|</p>
                 <a href="/users/<%= currentUser._id %>"><%= currentUser.fullName %></a>
                 <p>|</p>
                 <a href="/logout">Logout</a>
