@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 
+
 const userSchema = new mongoose.Schema({
     fullName: String,
     gender: String,
@@ -10,9 +11,9 @@ const userSchema = new mongoose.Schema({
     },
     birthday: Date,
     email: String,
-    favDog: {        
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Dog'
+    favDog: {
+        type: String,
+        default: 'None',
     },
     schedule: {
         type: Array,

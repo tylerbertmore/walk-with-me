@@ -11,8 +11,8 @@
     <div class="landing-container">
         <div class="awards-container">
             <div><img src="/images/best-of-lv.png" alt=""></div>
-            <div><img class="peta" src="/images/peta-logo.webp" alt=""></div>
-            <div><img class="rolling" src="/images/rolling-stones.png" alt=""></div>
+            <div><img src="/images/peta.png" alt=""></div>
+            <div><img src="/images/GA.png" alt=""></div>
             
         </div>
         <img src="/images/dogs-background.jpeg" alt="Destitute Dogs">
@@ -25,11 +25,19 @@
                 <h4>Volunteer Dog Walking redefined</h4>
 
             </div>
+            <% if(!currentUser)  { %>
             <div class="landing-btns">
                 <button><a href="/login">Login</a></button>
                 <button><a href="/signup">Signup</a></button>
                 <button><a href="/dogs">View Dogs</a></button>
+                
+               
             </div>
+            <% } else { %>
+                <div class="centered-landing">
+                    <button><a href="/dogs">View Dogs</a></button>
+                </div>
+                <% } %>
             
         </div>
     </div>

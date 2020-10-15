@@ -2,7 +2,7 @@
 <div class="user-container">
     <%- include('../partials/flash') %> 
 
-<h2 class="featured-walker-top">Featured Walker</h2>
+<h2 class="featured-walker-top">Featured Volunteer</h2>
 <section class="hero-walker">
     <% const rand = Math.floor(Math.random() * allUsers.length) %>
         <div class="profile-card">
@@ -16,15 +16,14 @@
                 <h2><%= allUsers[rand].fullName %></h2>
             </div>
             <div>
-                <p>Member Since:</p>
-                <p>Dogs walked: 0</p>
-                <p>Favorite Dog: </p>
+                <p>Member Since:<%= allUsers[rand].createdAt.toISOString().replace('T', ' ').substr(0, 11); %></p>
+                <p>Favorite Dog:<%= allUsers[rand].favDog %></p>
             </div>
 
         </div>
 
 </section>
-<h3 class="all-walkers">All Dog Walkers</h3>
+<h3 class="all-walkers">All Volunteers</h3>
     <section class="profile-grid">
     <% allUsers.forEach(item => { %>
         

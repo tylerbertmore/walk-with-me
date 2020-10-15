@@ -75,10 +75,14 @@ app.get('/signup', (req, res) => {
     //post
 app.post('/signup', async (req, res) => {
     try{
+        if(req.body.gender === ''){
+            req.body.gender = 'Prefer not to Say';
+        }
         const newUser = new db.User({username: req.body.username, fullName: req.body.fullName, gender: req.body.gender, birthday: req.body.birthday})
         const registeredUser = await db.User.register(newUser, req.body.password)
         req.login(registeredUser, err => {
             if(err) return console.log(err);
+            req.flash('success', 'Thanks for registering, this is your dashboard click below to start making appointments')
             res.redirect(`users/${req.user._id}/dashboard`);
         })
     } catch(e){
@@ -89,6 +93,7 @@ app.post('/signup', async (req, res) => {
 
 // Login route
 app.get('/login', (req, res) => {
+    req.flash('success', 'Successfully logged in')
     res.render('users/login');
 });
 

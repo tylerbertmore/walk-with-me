@@ -1,4 +1,7 @@
 <%- include('../partials/header') %> 
+<div class="flash-container">
+    <%- include('../partials/flash') %> 
+    </div>
 <main>
 <section>
             <div id="hero">
@@ -29,6 +32,7 @@
                 </div>
             </div>
 </section>
+<% if(currentUser)  { %>
 <div id="week">
     <div class="guide"></div>
     <div class="guide">Monday</div>
@@ -65,6 +69,8 @@
         <% } %>
    <% }) %>
 </div>
+
+<% } %>
 
 </main>
 <%- include('../partials/footer') %> 
