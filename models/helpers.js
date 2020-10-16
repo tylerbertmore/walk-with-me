@@ -1,3 +1,20 @@
+const db = require('../models');
+const cron = require('node-cron');
+
+let rollOver = () => {
+    db.Dog.updateMany({},
+        {$push: {schedule: { $each: [,,,,,,,,], $slice: -56}}},
+        { multi: true },
+        (err, renewedDogs) => {
+            console.log(err);
+        })
+}
+
+cron.schedule("40 56 8 * * * " , function(){
+    rollOver();
+    console.log('toad')
+});
+
 let format = array => {
     switch (array[1]) {
         case 0:

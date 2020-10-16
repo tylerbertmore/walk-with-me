@@ -124,7 +124,6 @@ app.get('*', (req, res) => {
     res.render('404');
 })
 
-
 //-------------------------------------------- LISTENER
 app.listen(PORT, () => {
     console.log(`I'm listening on port ${PORT}`)
