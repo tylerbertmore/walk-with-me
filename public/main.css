@@ -182,9 +182,23 @@ section {
     width: 80%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+}
+#instructions form>input{
+    height: 50px;
+    padding: 10px;
+    border: var(--dark) 3px solid;
+    background-color: var(--light);
+    color: white;
+    margin-bottom: 3rem;
+}
+
+#instructions form>input:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
 }
 
 #instructions h2 {
@@ -382,6 +396,7 @@ h2 {
     /* text-align: center; */
     width: 50%;
     min-width: 351px;
+    max-width: 351px;
     font-size: 22px;
     display: flex;
     flex-direction: column;
