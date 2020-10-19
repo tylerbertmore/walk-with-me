@@ -6,10 +6,6 @@ const db = require('../models');
 
 const helpers = require('../models/helpers.js')
 
-
-
-
-
 //-------------------------------------------- ROUTES
 
 function isLoggedIn(req, res, next){
@@ -73,15 +69,12 @@ router.get('/:user/dashboard', isLoggedIn, (req,res) => {
 router.get('/:user/edit', isLoggedIn, isCurrentUser, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         if(err) return console.log(err);
-        
-            db.Dog.find({}, (err, allDogs) => {
-                err ? console.log(err) : res.render('users/edit', {
-                    user: foundUser,
-                    allDogs: allDogs,
-                })
-    
+        db.Dog.find({}, (err, allDogs) => {
+            err ? console.log(err) : res.render('users/edit', {
+                user: foundUser,
+                allDogs: allDogs,
             })
-
+        })
     })
 })
 
@@ -97,7 +90,8 @@ router.put('/:user', isLoggedIn, isCurrentUser, (req, res) => {
             if(err) return console.log(err);
             req.flash('success', 'Your account was updated successfully');
             res.redirect(`${updated._id}`)
-    })
+        }
+    )
 })
 
 // delete account from database
