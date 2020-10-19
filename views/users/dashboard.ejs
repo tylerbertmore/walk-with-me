@@ -31,8 +31,7 @@
     <div id="tiles">
         <% let fullSched = [] %>
         <% dogs.forEach(dog => { %>
-            <% dog.sched = dog.schedule.map((item, index) => [item,Math.floor(index / 8), index % 8, dog.img, dog.name, dog.id]).filter(item => !!item[0]).filter(item => item[0] = userId); %>
-            <% console.log(dog.sched) %>
+            <% dog.sched = dog.schedule.map((item, index) => [item,Math.floor(index / 8), index % 8, dog.img, dog.name, dog.id]).filter(item => item[0] == userId); %>
         <% }); %>
         <% dogs.forEach(dog => fullSched.push(dog.sched)); %>
         <% let sorted = fullSched.flat(1).sort((x, y) => x[1] - y[1] || x[2] - y[2]); %>
