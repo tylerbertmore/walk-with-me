@@ -1,47 +1,40 @@
 <%- include('../partials/header') %> 
 <div class="flash-container">
     <%- include('../partials/flash') %> 
-    </div>
+</div>
 <main>
 <section>
-            <div id="hero">
-                <figure><div class="big"></div></figure>
-                <div id="feature">
-
-                    <div>
-                        <div class="bigwindow">
-                            <img src="<%= dog.img %>">
-                        </div>
-                        <figcaption>
-                            <h2> <%= dog.name %> </h2>
-                        </figcaption>
-                    </div>
-
-                    <article>
-                        <p>Sex: <%= dog.sex %></p>
-                        <p>Breed: <%= dog.breed %></p>
-                        <p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
-
-                        <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
-                        <% let dogBirth = Date.parse(dog.birthDate); %>
-                        <% let current = Date.parse(new Date()); %>
-                        <% let time = (current - dogBirth) * year; %>
-                        <p>Age: <%= Math.floor(time); %></p>
-                    </article>
-
+    <div id="hero">
+        <figure><div class="big"></div></figure>
+        <div id="feature">
+            <div>
+                <div class="bigwindow">
+                    <img src="<%= dog.img %>">
                 </div>
+                <figcaption>
+                    <h2> <%= dog.name %> </h2>
+                </figcaption>
             </div>
+            <article>
+                <p>Sex: <%= dog.sex %></p>
+                <p>Breed: <%= dog.breed %></p>
+                <p>Birthday: <%= dog.birthDate.toISOString().replace('T', ' ').substr(0, 11); %></p>
+                <% let year = 1 / (365.25 * 24 * 60 * 60 * 1000); %>
+                <% let dogBirth = Date.parse(dog.birthDate); %>
+                <% let current = Date.parse(new Date()); %>
+                <% let time = (current - dogBirth) * year; %>
+                <p>Age: <%= Math.floor(time); %></p>
+            </article>
+        </div>
+    </div>
 </section>
-<% if(currentUser)  { %>
+<% let days = helpers.adjust(); %>
+<% if(currentUser) { %>
 <div id="week">
-    <div class="guide"></div>
-    <div class="guide">Monday</div>
-    <div class="guide">Tuesday</div>
-    <div class="guide">Wednesday</div>
-    <div class="guide">Thursday</div>
-    <div class="guide">Friday</div>
-    <div class="guide">Saturday</div>
-    <div class="guide">Sunday</div>
+    <div class="guide">TIME:</div>
+    <% days.forEach(item => { %>
+        <div class="guide"><%= item %></div>
+    <% }) %>
 </div>
 <div id="calendar">
     <div class="guide">9AM</div>
