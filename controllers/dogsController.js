@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const helpers = require('../models/helpers.js')
 
 
 //-------------------------------------------- ROUTES
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
 
 router.get('/:dogId', (req, res) => {
     db.Dog.findById(req.params.dogId, (err, foundDog) => {
-        err ? console.log(err) : res.render('dogs/show', {dog: foundDog})
+        err ? console.log(err) : res.render('dogs/show', {dog: foundDog, helpers: helpers})
     })
 })
 

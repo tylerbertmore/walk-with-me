@@ -13,6 +13,8 @@
         <div id="instructions">
             
                 <% if(!dogs.every(item => null)) { %>
+                    <h2>Here are your upcoming appointments</h2>
+                <% } else { %>
                     <h2>View your upcoming appointments here</h2>
                 <% } else { %>
                     <h2>Looks like you have no appointments...</h2>
@@ -22,12 +24,13 @@
                     </form>
                     
                 <% } %>
-            
+            </div>
+            <div id="lorem">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
         </div>
     </div>
 </section>
-
-
 
 <section>
     <div id="tiles">
@@ -46,6 +49,7 @@
                 </div>
                 <figcaption>
                     <p>You're walking <%= meeting[4] %></p>
+                    <% console.log(meeting) %>
                     <% helpers.format(meeting) %>
                     <p><%= meeting[1] %> at <%= meeting[2] %></p>
                 </figcaption>
