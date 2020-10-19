@@ -26,29 +26,29 @@ let rollOver = () => {
             })
     })
 }
-
+  
 let format = array => {
-    array[1] = (array[1] % today)
+    array[1] = (array[1] + today) % 7;
     switch (array[1]) {
-        case 0:
+        case 1:
             array[1] = 'Monday';
         break;
-        case 1:
+        case 2:
             array[1] = 'Tuesday';
         break;
-        case 2:
+        case 3:
             array[1] = 'Wednesday';
         break;
-        case 3:
+        case 4:
             array[1] = 'Thursday';
         break;
-        case 4:
+        case 5:
             array[1] = 'Friday';
         break;
-        case 5:
+        case 6:
             array[1] = 'Saturday';
         break;
-        case 6:
+        case 0:
             array[1] = 'Sunday';
         break;
         default:
