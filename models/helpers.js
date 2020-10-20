@@ -30,25 +30,25 @@ let rollOver = () => {
 let format = array => {
     array[1] = (array[1] + today) % 7;
     switch (array[1]) {
-        case 1:
+        case 6:
             array[1] = 'Monday';
         break;
-        case 2:
+        case 0:
             array[1] = 'Tuesday';
         break;
-        case 3:
+        case 1:
             array[1] = 'Wednesday';
         break;
-        case 4:
+        case 2:
             array[1] = 'Thursday';
         break;
-        case 5:
+        case 3:
             array[1] = 'Friday';
         break;
-        case 6:
+        case 4:
             array[1] = 'Saturday';
         break;
-        case 0:
+        case 5:
             array[1] = 'Sunday';
         break;
         default:
@@ -86,7 +86,7 @@ let format = array => {
 }
 
 let adjust = () => {
-    week = [6,0,1,2,3,4,5]
+    week = [1,2,3,4,5,6,0]
     week.forEach((item, index) => {
        week[index] = (item + today) % 7
     })
