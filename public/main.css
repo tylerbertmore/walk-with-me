@@ -298,6 +298,7 @@ a:visited {
 .profile-grid, .profile-grid-user {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     background-color: #ddd;
     margin-bottom: 8%;
@@ -493,7 +494,8 @@ h2 {
     justify-content: space-evenly;
     align-items: center;
     top: 5%;
-    left: 20%;
+    left: 50%; 
+    transform: translate(-50%, 0); 
     height: 150px;
     z-index: 3;
     width: 70%;
@@ -507,8 +509,9 @@ h2 {
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: 30%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 50%;
     height: 40%;
     background-color: white;
@@ -547,7 +550,8 @@ h2 {
     color: white;
     position: absolute;
     bottom: 5%;
-    left: 50%;
+    left: 50%; 
+    transform: translate(-50%, 0); 
     width: 100px;
     height: 100px;
     z-index: 2;
@@ -624,4 +628,30 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ---------------------------------------------------
+                     MEDA QUERIES                
+--------------------------------------------------- */
+/* LANDING */
+@media (max-width: 750px){
+    .landing-btns button{
+        background-color: yellow;
+    }
+    .awards-container{
+        width: 95%;
+    }
+    .jumbotron{
+        width: 80%;
+    }
+}
+
+/* login / signup */
+@media (max-width: 940px){
+    .main{
+        width: 100%;
+    }
+    .form-container{
+        width: 95%;
+    }
 }
