@@ -178,6 +178,14 @@ section {
     padding: 10px;
 }
 
+.welcome{
+    margin-bottom: 40px;
+    border-bottom: steelblue 10px solid;
+}
+#instructions h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
 #instructions {
     width: 90%;
     display: flex;
@@ -200,9 +208,6 @@ section {
     cursor: pointer;
 }
 
-#instructions h2 {
-    text-align: left;
-}
 
 #lorem {
     width: 80%;
@@ -630,6 +635,7 @@ h2 {
     align-items: center;
 }
 
+
 /* ---------------------------------------------------
                      MEDA QUERIES                
 --------------------------------------------------- */
@@ -646,12 +652,43 @@ h2 {
     }
 }
 
-/* login / signup */
 @media (max-width: 940px){
     .main{
         width: 100%;
     }
+    /* login */
     .form-container{
         width: 95%;
     }
+    /* navbar */
+    .nav1 img{
+        width: 60px;
+    }
+    .nav3 p{
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .nav3{
+        font-size: 13px;
+    }
+    /* Dashbord */
+    .mobile-hero{
+        display: none;
+    }
+
+    /* users pages */
+    .userh2{
+        display: none;
+    }
+    .hero-walker{
+        flex-direction: column;
+    }
+    .profile-card img{
+        min-width: 300px;
+        min-height: 300px;
+        height: 300px;
+        width: 300px;
+    }
+    /* dogs pages */
+
 }
