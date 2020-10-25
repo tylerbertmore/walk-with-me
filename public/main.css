@@ -102,6 +102,7 @@ main {
 h1 {
     position: relative;
     font-size: 50px;
+    text-align: center;
 }
 
 .form-container h1 span {
@@ -642,7 +643,10 @@ h2 {
 /* LANDING */
 @media (max-width: 750px){
     .landing-btns button{
-        background-color: yellow;
+        height: 40px;
+        font-size: 12px;
+        padding: 0;
+        margin-bottom: 10px;
     }
     .awards-container{
         width: 95%;
@@ -661,18 +665,13 @@ h2 {
         width: 95%;
     }
     /* navbar */
+
     .nav1 img{
-        width: 60px;
+        display: none;
     }
-    .nav3 p{
-        margin-right: 5px;
-        margin-left: 5px;
-    }
-    .nav3{
-        font-size: 13px;
-    }
+
     /* Dashbord */
-    .mobile-hero{
+    .mobile-hero, #mobile-hero{
         display: none;
     }
 
@@ -690,5 +689,21 @@ h2 {
         width: 300px;
     }
     /* dogs pages */
-
+    #calendar-group{
+        overflow: scroll;
+    }
+    #hero{
+        width: 85vw;
+        height: auto;
+    }
+    #feature{
+        flex-direction: column;
+    }
+    #feature article{
+        font-size: 22px;
+    }
+    .bigwindow, .bigwindow img {
+        width: 250px;
+        height: 250px;
+    }
 }

@@ -30,6 +30,9 @@
 </section>
 <% let days = helpers.adjust(); %>
 <% if(currentUser) { %>
+    <div id="calendar-group">
+
+    
 <div id="week">
     <div class="guide">TIME:</div>
     <% days.forEach(item => { %>
@@ -62,7 +65,7 @@
         <% } %>
    <% }) %>
 </div>
-
+</div>
 <% } %>
 
 </main>
