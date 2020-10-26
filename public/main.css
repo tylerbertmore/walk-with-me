@@ -564,8 +564,9 @@ h2 {
 }
 
 /* calendar styling */
+
 #calendar {
-    width: 80vh;
+    width: 100vh;
     height: 450px;
     display: flex;
     flex-direction: column;
@@ -575,7 +576,7 @@ h2 {
 }
 
 #week {
-    width: 80vh;
+    width: 100vh;
     height: 60px;
     display: flex;
     flex-direction: column;
@@ -641,20 +642,9 @@ h2 {
                      MEDA QUERIES                
 --------------------------------------------------- */
 /* LANDING */
-@media (max-width: 750px){
-    .landing-btns button{
-        height: 40px;
-        font-size: 12px;
-        padding: 0;
-        margin-bottom: 10px;
-    }
-    .awards-container{
-        width: 95%;
-    }
-    .jumbotron{
-        width: 80%;
-    }
-}
+
+
+
 
 @media (max-width: 940px){
     .main{
@@ -690,7 +680,7 @@ h2 {
     }
     /* dogs pages */
     #calendar-group{
-        overflow: scroll;
+        overflow: auto;
     }
     #hero{
         width: 85vw;
@@ -705,5 +695,41 @@ h2 {
     .bigwindow, .bigwindow img {
         width: 250px;
         height: 250px;
+    }
+}
+
+@media (max-width: 750px){
+    .landing-btns button{
+        height: 40px;
+        font-size: 12px;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    .awards-container{
+        width: 90%;
+    }
+    .jumbotron{
+        width: 80%;
+    }
+}
+
+@media (max-width: 450px){
+    nav{
+        text-align: center;
+    }
+    .form-container{
+        width: 100%;
+    }
+    main{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .user-container{
+        width: 95%;
+    }
+    .hero-walker{
+        flex-wrap: nowrap;
+        padding: 0;
     }
 }
