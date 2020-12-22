@@ -42,6 +42,7 @@ router.get('/', isLoggedIn, (req, res) => {
 router.get('/:user/', isLoggedIn, (req, res) => {
     db.User.findById(req.params.user, (err, foundUser) => {
         if(err) return console.log(err);
+        console.log(foundUser)
         db.Dog.find({}, (err, allDogs) => {
             err ? console.log(err) : res.render('users/show', {
                 user: foundUser,
@@ -95,7 +96,7 @@ router.put('/:user', isLoggedIn, isCurrentUser, (req, res) => {
 })
 
 // delete account from database
-router.delete('/:user', isLoggedIn, isCurrentUser, (req, res) => {
+router.delete('/:user', isLoggedIn, (req, res) => {
     db.User.findByIdAndDelete(req.params.user, (err, deleted) => {
         if(err) return console.log(err);
         req.flash('error', 'Account successfully deleted, feel free to create a new one');
